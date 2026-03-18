@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+body {
+  margin: 0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -31,3 +35,5 @@ body {
     @apply bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors cursor-pointer;
   }
 }
+
+/* Category css */

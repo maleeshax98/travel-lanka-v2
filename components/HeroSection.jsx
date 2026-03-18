@@ -3,7 +3,7 @@ import SriLankaMap from "./SriLankaMap";
 
 const HeroSection = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-20 h-screen">
       <div className="flex flex-col md:flex-row items-center justify-center gap-5">
         <div className="text-center md:text-left">
           <h1 className="font-caveat text-4xl">

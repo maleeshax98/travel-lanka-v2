@@ -9,7 +9,7 @@ export default function Navigation() {
   const [activeDropdown, setActiveDropdown] = useState(false);
 
   return (
-    <nav className="w-full fixed bg-white flex items-center justify-between lg:justify-center py-6 px-6 lg:px-8  top-0 z-50 left-0 bg-transparent">
+    <nav className="w-full flex items-center justify-between lg:justify-center py-6 px-6 lg:px-8  top-0 z-50 left-0 bg-transparent">
       {/* Mobile Menu Button */}
       <div className="lg:hidden flex items-center z-50 w-full justify-start">
         <button
