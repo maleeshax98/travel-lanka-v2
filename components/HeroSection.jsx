@@ -17,25 +17,17 @@ const HeroSection = () => {
       stagger: 0.1, // 0.05 seconds between each
     });
 
-    gsap.to(
-      ".main-text",
-      {
-        duration: 2,
-        opacity: 1,
-        autoAlpha: 1,
-      },
-      "<",
-    );
+    gsap.to(".main-text", {
+      duration: 2,
+      opacity: 1,
+      autoAlpha: 1,
+    });
 
-    gsap.to(
-      ".map",
-      {
-        duration: 2,
-        opacity: 1,
-        autoAlpha: 1,
-      },
-      "<",
-    );
+    gsap.to(".map", {
+      duration: 2,
+      opacity: 1,
+      autoAlpha: 1,
+    });
 
     gsap.to(".map", {
       yPercent: -20,
