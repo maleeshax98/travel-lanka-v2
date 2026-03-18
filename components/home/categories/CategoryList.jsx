@@ -38,7 +38,6 @@ const CategoryList = ({ data }) => {
             scrub: 2,
             pin: true,
             invalidateOnRefresh: true,
-            markers: true,
           },
           x: scrollDistance,
           ease: "none",

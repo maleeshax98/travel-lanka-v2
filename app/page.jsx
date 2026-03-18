@@ -9,6 +9,7 @@ const page = () => {
       <Navigation />
       <HeroSection />
       <Categories />
+      {/* Activities Cards - featured */}
     </main>
   );
 };
