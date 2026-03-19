@@ -55,7 +55,7 @@ const HeroSection = () => {
               Explore the rich culture, stunning landscapes, and warm
               hospitality of,
             </p>
-            <button className="primary-button mt-5">Explore Now</button>
+            <button className="primary-button mt-5 z-[500]">Explore Now</button>
           </div>
 
           <h1 className="sri-lanka font-extrabold text-[140px] text-left md:text-[320px] md:leading-[270px] z-[-10]  absolute left-0 bottom-0 opacity-10">
@@ -65,7 +65,7 @@ const HeroSection = () => {
         </div>
 
         <div className="map-container">
-          <div className="map opacity-0 scale-100 md:scale-115">
+          <div className="map opacity-0 scale-80 z-[-100]  md:scale-115">
             <SriLankaMap />
           </div>
         </div>

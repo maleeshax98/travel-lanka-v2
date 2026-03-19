@@ -32,7 +32,7 @@ function About() {
     }).to(
       split.words,
       {
-        color: "#facc15", // Highlight effect (Yellow-500) as they scroll
+        color: "oklch(70.5% 0.213 47.604)", // Highlight effect (Yellow-500) as they scroll
         stagger: 0.1,
       },
       0,
@@ -60,7 +60,7 @@ function About() {
     });
 
     tl.to(".second-text-container", {
-      y: 20,
+      y: -90,
       duration: 1,
       ease: "power1.inOut",
     });

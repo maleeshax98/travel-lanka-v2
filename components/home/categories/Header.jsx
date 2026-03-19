@@ -21,11 +21,11 @@ const Header = () => {
   });
   return (
     <div className=" header">
-      <h4 className="font-caveat text-4xl text-center">Explore Sri Lanka</h4>
+      <h4 className="font-caveat text-4xl text-center text-orange-500">Explore Sri Lanka</h4>
 
       <h1 className="flex flex-col text-5xl font-bold text-center">
         <span>Explore The Beautiful Places</span>
-        <span className="text-blue-500">Around Sri Lanka</span>
+        <span className="text-orange-600">Around Sri Lanka</span>
       </h1>
     </div>
   );
