@@ -1,9 +1,9 @@
 import HeroSection from "@/components/HeroSection";
 import Categories from "@/components/home/categories/Categories";
 import Navigation from "@/components/Navigation";
-import Activities from "@/components/home/activities/Activities";
 import About from "@/components/home/sriLanka/About";
 import React from "react";
+import Activites from "@/components/home/activities/Activites";
 
 const page = () => {
   return (
@@ -13,7 +13,15 @@ const page = () => {
       <Categories />
 
       <About />
-      <Activities />
+      <Activites />
+
+      {/* featured places */}
+
+      {/* blog posts */}
+
+      {/* contact */}
+
+      {/* footer */}
     </main>
   );
 };

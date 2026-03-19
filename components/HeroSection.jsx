@@ -4,6 +4,7 @@ import SriLankaMap from "./SriLankaMap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
+import ButtonMain from "./ui/ButtonMain";
 
 const HeroSection = () => {
   useGSAP(() => {
@@ -55,7 +56,25 @@ const HeroSection = () => {
               Explore the rich culture, stunning landscapes, and warm
               hospitality of,
             </p>
-            <button className="primary-button mt-5 z-[500]">Explore Now</button>
+            {/* <button className="primary-button mt-5 z-[500]">Explore Now</button> */}
+            <ButtonMain
+              text={"Explore Now"}
+              icon={
+                <svg
+                  className="transform transition-transform duration-300 group-hover:translate-x-1"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              }
+            />
           </div>
 
           <h1 className="sri-lanka font-extrabold text-[140px] text-left md:text-[320px] md:leading-[270px] z-[-10]  absolute left-0 bottom-0 opacity-10">

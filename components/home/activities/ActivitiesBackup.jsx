@@ -84,12 +84,12 @@ const Activities = () => {
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Left Side: Navigation List */}
           <div className="w-full lg:w-1/3">
-            <div className="flex flex-col space-y-2 border-l border-gray-100">
+            <div className="flex flex-col space-y-2 border-l border-gray-100 text-lg">
               {activityData.activities.map((activity, index) => (
                 <button
                   key={index}
                   onClick={() => setSelectedActivity(activity)}
-                  className={`group text-left px-8 py-5 transition-all duration-300 relative rounded-r-2xl outline-hidden ${
+                  className={`group text-left px-8 py-5 transition-all duration-300 text-lg relative rounded-r-2xl outline-hidden ${
                     selectedActivity.name === activity.name
                       ? "bg-orange-50/50 text-orange-600"
                       : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
@@ -125,7 +125,7 @@ const Activities = () => {
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 underline decoration-orange-500/30 decoration-4 underline-offset-8">
                   {selectedActivity.name}
                 </h3>
-                <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl">
+                <p className="text-gray-600 text-lg leading-relaxed max-w-2xl ">
                   {selectedActivity.description}
                 </p>
               </div>

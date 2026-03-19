@@ -59,12 +59,6 @@ function About() {
       ease: "power1.inOut",
     });
 
-    tl.to(".second-text-container", {
-      y: -90,
-      duration: 1,
-      ease: "power1.inOut",
-    });
-
     // return () => split.revert();
   }, []);
 
@@ -80,9 +74,9 @@ function About() {
         </h1>
       </div>
 
-      <div className="opacity-0 absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center content-center second-section ">
+      <div className="opacity-0 absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen">
         <div className="map-container">
-          <div className="relative w-full max-w-[320px] md:max-w-[420px]">
+          <div className="relative max-w-[350px]  ">
             <Image
               src="/Assets/Images/intro-sri-lanka.png"
               alt="Sri Lanka Map"
@@ -94,7 +88,7 @@ function About() {
           </div>
         </div>
 
-        <div className="second-text-container flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className="second-text-container flex flex-col items-center lg:items-start text-center lg:text-left ">
           <span
             className={`font-caveat text-2xl md:text-3xl text-orange-600 mb-2`}
           >
