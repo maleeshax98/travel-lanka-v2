@@ -61,7 +61,7 @@ const Activites = () => {
           opts={{
             align: "start",
           }}
-          className="w-full max-w-2xl p-5"
+          className="w-full max-w-7xl p-5"
           plugins={[plugin.current]}
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
