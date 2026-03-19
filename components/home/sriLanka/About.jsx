@@ -39,13 +39,15 @@ function About() {
     );
 
     tl.to(".introduction", {
-      opacity: 0,
+      // opacity: 0,
+      x: "-100vw",
       duration: 1,
       ease: "power1.inOut",
     });
 
     tl.to(".second-section", {
-      opacity: 1,
+      x: "0",
+      // opacity: 1,
       duration: 2,
       ease: "power1.inOut",
       anticipatePin: 1,
@@ -57,6 +59,14 @@ function About() {
       duration: 2,
       yoyo: true,
       ease: "power1.inOut",
+    });
+
+    tl.to(".second-section", {
+      x: "-100vw",
+      // opacity: 1,
+      duration: 2,
+      ease: "power1.inOut",
+      anticipatePin: 1,
     });
 
     // return () => split.revert();
@@ -74,7 +84,7 @@ function About() {
         </h1>
       </div>
 
-      <div className="opacity-0 absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen">
+      <div className=" absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen translate-x-[100vw]">
         <div className="map-container">
           <div className="relative max-w-[350px]  ">
             <Image
