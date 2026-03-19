@@ -8,11 +8,13 @@ import DestinationsGallery from "@/components/home/destinationsGallery/Destinati
 import Contact from "@/components/home/contact/Contact";
 import Footer from "@/components/footer/Footer";
 import TrendingActivites from "@/components/home/trendingActivites/TrendingActivites";
+import Navbar from "@/components/Navbar";
 
 const page = () => {
   return (
     <main>
-      <Navigation />
+      {/* <Navigation /> */}
+      <Navbar />
       <HeroSection />
       <Categories />
 

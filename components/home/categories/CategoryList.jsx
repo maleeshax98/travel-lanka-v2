@@ -19,7 +19,7 @@ const CategoryList = ({ data }) => {
     () => {
       const viewportWidth = window.innerWidth;
       const containerWidth = containerRef.current?.scrollWidth;
-      console.log(containerWidth, viewportWidth);
+
       const scrollDistance =
         containerWidth && containerWidth !== viewportWidth
           ? viewportWidth - containerWidth

@@ -87,7 +87,7 @@ const HeroSection = () => {
         </div>
 
         <div className="map-container">
-          <div className="map opacity-0 scale-80 z-[-100]  md:scale-115">
+          <div className="map opacity-0 scale-80 z-[-100]  md:scale-100">
             <SriLankaMap />
           </div>
         </div>
