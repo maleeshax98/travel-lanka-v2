@@ -4,6 +4,8 @@ import Navigation from "@/components/Navigation";
 import About from "@/components/home/sriLanka/About";
 import React from "react";
 import Activites from "@/components/home/activities/Activites";
+import FeaturedDestinations from "@/components/home/featuredDestinations/FeaturedDestinations";
+
 
 const page = () => {
   return (
@@ -16,7 +18,7 @@ const page = () => {
       <Activites />
 
       {/* featured places */}
-
+      <FeaturedDestinations />
       {/* blog posts */}
 
       {/* contact */}
