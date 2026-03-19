@@ -31,7 +31,7 @@ export default function LandmarkModal({ landmark, onClose }) {
             />
           </div>
 
-          <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-1">
+          <p className="text-xs font-semibold text-orange-600 uppercase tracking-widest mb-1">
             {landmark.category}
           </p>
 
@@ -45,7 +45,7 @@ export default function LandmarkModal({ landmark, onClose }) {
 
           <button
             onClick={onClose}
-            className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2.5 rounded-lg shadow-md shadow-blue-500/30 transition text-sm"
+            className="mt-auto w-full bg-orange-600 hover:bg-orange-700 text-white font-medium px-4 py-2.5 rounded-lg shadow-md shadow-orange-500/30 transition text-sm"
           >
             View Details
           </button>

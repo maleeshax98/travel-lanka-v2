@@ -46,9 +46,9 @@ function About() {
     });
 
     tl.to(".second-section", {
-      x: "0",
-      // opacity: 1,
-      duration: 2,
+      // x: "0",
+      opacity: 1,
+      // duration: 2,
       ease: "power1.inOut",
       anticipatePin: 1,
     });
@@ -64,7 +64,7 @@ function About() {
     tl.to(".second-section", {
       x: "-100vw",
       // opacity: 1,
-      duration: 2,
+      duration: 1,
       ease: "power1.inOut",
       anticipatePin: 1,
     });
@@ -84,7 +84,7 @@ function About() {
         </h1>
       </div>
 
-      <div className=" absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen translate-x-[100vw]">
+      <div className="opacity-0 absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen ">
         <div className="map-container">
           <div className="relative max-w-[350px]  ">
             <Image

@@ -30,15 +30,15 @@ export default function MapMarker({ landmark, onClick }) {
       {/* ripple */}
       <div
         ref={rippleRef}
-        className="absolute w-10 h-10 rounded-full bg-blue-500 opacity-70"
+        className="absolute w-10 h-10 rounded-full bg-orange-500 opacity-70"
       />
 
       {/* glow */}
-      <div className="absolute w-10 h-10 rounded-full bg-blue-400 blur-md opacity-60" />
+      <div className="absolute w-10 h-10 rounded-full bg-orange-400 blur-md opacity-60" />
 
       {/* pin */}
       <div className="relative flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-lg group-hover:scale-110 transition">
-        <MapPin size={16} className="text-blue-600" />
+        <MapPin size={16} className="text-orange-600" />
       </div>
     </div>
   );

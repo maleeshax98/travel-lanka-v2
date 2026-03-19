@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React from "react";
 
-const Header = () => {
+const Header = ({ title, subtitle, superTitle }) => {
   useGSAP(() => {
     gsap.set(".header", { opacity: 0 });
 
@@ -21,11 +21,13 @@ const Header = () => {
   });
   return (
     <div className=" header">
-      <h4 className="font-caveat text-4xl text-center text-orange-500">Explore Sri Lanka</h4>
+      <h4 className="font-caveat text-4xl text-center text-orange-500">
+        {subtitle}
+      </h4>
 
       <h1 className="flex flex-col text-5xl font-bold text-center">
-        <span>Explore The Beautiful Places</span>
-        <span className="text-orange-600">Around Sri Lanka</span>
+        <span>{title}</span>
+        <span className="text-orange-600">{superTitle}</span>
       </h1>
     </div>
   );

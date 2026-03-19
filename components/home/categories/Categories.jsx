@@ -1,7 +1,7 @@
 import React from "react";
 import CategoryList from "./CategoryList";
 import { getTrendingDestinations } from "@/sanity/getTrendingDes";
-import Header from "./Header";
+import Header from "../../Header";
 
 const Categories = async () => {
   const data = await getTrendingDestinations();
@@ -10,7 +10,7 @@ const Categories = async () => {
     return (
       <div>
         <div className="">
-          <Header />
+          <Header subtitle={"Explore Sri Lanka"} title={"Explore The Beautiful Places"} superTitle={"Around Sri Lanka"} />
         </div>
 
         <div>
