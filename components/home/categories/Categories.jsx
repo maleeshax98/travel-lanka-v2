@@ -10,7 +10,7 @@ const Categories = async () => {
     return (
       <div>
         <div className="">
-          <Header subtitle={"Explore Sri Lanka"} title={"Explore The Beautiful Places"} superTitle={"Around Sri Lanka"} />
+          <Header subtitle={"Explore Sri Lanka"} title={"Explore The Beauty"} superTitle={"Around Sri Lanka"} />
         </div>
 
         <div>

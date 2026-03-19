@@ -3,12 +3,12 @@ import Categories from "@/components/home/categories/Categories";
 import Navigation from "@/components/Navigation";
 import About from "@/components/home/sriLanka/About";
 import React from "react";
-import Activites from "@/components/home/activities/Activites";
 import DestinationsGallery from "@/components/home/destinationsGallery/DestinationsGallery";
 import Contact from "@/components/home/contact/Contact";
 import Footer from "@/components/footer/Footer";
-import TrendingActivites from "@/components/home/trendingActivites/TrendingActivites";
+import TrendingProducts from "@/components/home/trendingProducts/TrendingProducts";
 import Navbar from "@/components/Navbar";
+import Activities from "@/components/home/activities/Activities";
 
 const page = () => {
   return (
@@ -16,13 +16,14 @@ const page = () => {
       {/* <Navigation /> */}
       <Navbar />
       <HeroSection />
+      {/* Destinations, beaches, water falls  */}
       <Categories />
 
       {/* Product list */}
-      <TrendingActivites />
+      <TrendingProducts />
 
       <About />
-      <Activites />
+      <Activities />
       <DestinationsGallery />
 
       {/* blog posts */}

@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import getImageURL from "@/libs/sanity";
 import DestinationCard from "./DestinationCard";
+import Header from "@/components/Header";
 
 const DestinationsGalleryList = ({ destinations }) => {
   const containerRef = useRef(null);
@@ -161,7 +162,7 @@ const DestinationsGalleryList = ({ destinations }) => {
       </div>
 
       {/* Clean Staggered Header Section */}
-      <div
+      {/* <div
         ref={textContainerRef}
         className="w-full flex flex-col items-center justify-center relative mb-16 px-4"
         style={{ perspective: "1000px" }}
@@ -174,6 +175,13 @@ const DestinationsGalleryList = ({ destinations }) => {
             Around Sri Lanka
           </span>
         </h3>
+      </div> */}
+      <div>
+        <Header
+          subtitle={"Beauty of Sri Lanka"}
+          title={"Popular Beautiful Destinations"}
+          superTitle={"Around Sri Lanka"}
+        />
       </div>
 
       {/* Grid Layout */}

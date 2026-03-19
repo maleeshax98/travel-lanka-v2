@@ -13,7 +13,7 @@ import {
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
 
-const TrendingActivityCard = ({ data }) => {
+const TrendingProductCard = ({ data }) => {
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
@@ -59,4 +59,4 @@ const TrendingActivityCard = ({ data }) => {
   );
 };
 
-export default TrendingActivityCard;
+export default TrendingProductCard;

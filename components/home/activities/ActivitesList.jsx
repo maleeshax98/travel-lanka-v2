@@ -13,34 +13,7 @@ import Autoplay from "embla-carousel-autoplay";
 import ButtonMain from "@/components/ui/ButtonMain";
 import { ArrowRight } from "lucide-react";
 
-const works = [
-  {
-    artist: "Ornella Binni",
-    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Tom Byrom",
-    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Vladimir Malyavko",
-    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Ornella Binni",
-    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Tom Byrom",
-    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
-  },
-  {
-    artist: "Vladimir Malyavko",
-    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
-  },
-];
-
-const Activites = () => {
+const ActivitesList = ({ data }) => {
   const plugin = useRef(Autoplay({ delay: 1500, stopOnInteraction: true }));
   return (
     <section className="mt-[120px] md:mt-[10px]">
@@ -51,7 +24,7 @@ const Activites = () => {
           </h4>
 
           <h1 className="flex flex-col text-5xl font-bold text-center">
-            <span>Activities</span>
+            <span>Popular Activities</span>
             <span className="text-orange-600">Around Sri Lanka</span>
           </h1>
         </div>
@@ -67,9 +40,9 @@ const Activites = () => {
           onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
-            {works.map((artwork, index) => (
+            {data.map((item, index) => (
               <CarouselItem key={index} className="basis-1/2 lg:basis-1/3">
-                <ActivityCard artwork={artwork} key={index} />
+                <ActivityCard data={item} key={index} />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -87,4 +60,4 @@ const Activites = () => {
   );
 };
 
-export default Activites;
+export default ActivitesList;

@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const Activities = () => {
+const ActivitiesLL = () => {
   const [selectedActivity, setSelectedActivity] = useState(
     activityData.activities[0],
   );
@@ -187,4 +187,4 @@ const Activities = () => {
   );
 };
 
-export default Activities;
+export default ActivitiesLL;

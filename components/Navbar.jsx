@@ -4,21 +4,20 @@ import { getNavbarData } from "@/sanity/getNavbarData";
 
 const Navbar = async () => {
   const navData = await getNavbarData();
-  console.log(navData);
   return (
     <>
       <Navigation
         data={[
           {
-            title: "Home",
+            name: "Home",
             subItems: [],
           },
           {
-            title: "The Island",
+            name: "The Island",
             subItems: [],
           },
           {
-            title: "Travel Tips",
+            name: "Travel Tips",
             subItems: [],
           },
           ...navData,

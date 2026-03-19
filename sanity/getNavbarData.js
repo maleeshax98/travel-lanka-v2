@@ -2,14 +2,35 @@
 
 import { client } from "@/sanity/client";
 
-const POSTS_QUERY = `*[_type == "category" && defined(slug.current)
-][0...6]{_id, title, slug, "subItems": *[references(^._id)][0...10]{_id, name, slug}}`;
+const POSTS_QUERY = `*[_type == "placesCategory" && defined(slug.current)
+][0...10]{_id, name, slug, "subItems": *[ _type == "places" && references(^._id)][0...10]{_id, name, slug}}`;
+
+const DESTINATIONS_QUERY = `*[_type == "destination" && defined(slug.current)
+][0...10]{_id, name, slug}`;
+
+const ACTIVITY_QUERY = `*[_type == "activityCategory" && defined(slug.current)
+][0...10]{_id, name, slug}`;
 
 const options = { next: { revalidate: 30 } };
 
 const getNavbarData = async () => {
   const navbarData = await client.fetch(POSTS_QUERY, {}, options);
-  return navbarData;
+  const activityData = await client.fetch(ACTIVITY_QUERY, {}, options);
+  const destinations = await client.fetch(DESTINATIONS_QUERY, {}, options);
+
+  const des = {
+    name: "Destinations",
+    slug: { _type: "slug", current: "destinations" },
+    subItems: destinations,
+  };
+
+  const ac = {
+    name: "Things to Do",
+    slug: { _type: "slug", current: "activities" },
+    subItems: activityData,
+  };
+
+  return [des, ...navbarData, ac];
 };
 
 export { getNavbarData };
