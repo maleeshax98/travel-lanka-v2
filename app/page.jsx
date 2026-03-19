@@ -4,8 +4,9 @@ import Navigation from "@/components/Navigation";
 import About from "@/components/home/sriLanka/About";
 import React from "react";
 import Activites from "@/components/home/activities/Activites";
-import FeaturedDestinations from "@/components/home/featuredDestinations/FeaturedDestinations";
-
+import DestinationsGallery from "@/components/home/destinationsGallery/DestinationsGallery";
+import Contact from "@/components/home/contact/Contact";
+import Footer from "@/components/footer/Footer";
 
 const page = () => {
   return (
@@ -14,16 +15,16 @@ const page = () => {
       <HeroSection />
       <Categories />
 
+      {/* Product list */}
+
       <About />
       <Activites />
+      <DestinationsGallery />
 
-      {/* featured places */}
-      <FeaturedDestinations />
       {/* blog posts */}
 
-      {/* contact */}
-
-      {/* footer */}
+      <Contact />
+      <Footer />
     </main>
   );
 };

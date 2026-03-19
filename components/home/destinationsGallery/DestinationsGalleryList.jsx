@@ -10,7 +10,7 @@ import { useGSAP } from "@gsap/react";
 import getImageURL from "@/libs/sanity";
 import DestinationCard from "./DestinationCard";
 
-const FeaturedDestinationsList = ({ destinations }) => {
+const DestinationsGalleryList = ({ destinations }) => {
   const containerRef = useRef(null);
   const textContainerRef = useRef(null);
   const textFillRef = useRef(null);
@@ -166,14 +166,14 @@ const FeaturedDestinationsList = ({ destinations }) => {
         className="w-full flex flex-col items-center justify-center relative mb-16 px-4"
         style={{ perspective: "1000px" }}
       >
-        {/* <h3 className="text-4xl lg:text-6xl font-black leading-tight max-w-4xl text-center text-black flex flex-col gap-2">
+        <h3 className="text-4xl lg:text-6xl font-black leading-tight max-w-4xl text-center text-black flex flex-col gap-2">
           <span className="anim-line block will-change-transform origin-bottom">
-            Explore The Beautiful Places
+            Popular Beautiful Places
           </span>
           <span className="anim-line block text-orange-600 will-change-transform origin-bottom">
             Around Sri Lanka
           </span>
-        </h3> */}
+        </h3>
       </div>
 
       {/* Grid Layout */}
@@ -210,10 +210,10 @@ const FeaturedDestinationsList = ({ destinations }) => {
           )}
 
           {/* Bottom Left Call To Action */}
-          <div className="cta-block h-[280px] bg-[#3B82F6] rounded-3xl p-8 flex flex-col justify-center items-center text-center text-white relative overflow-hidden group">
+          <div className="cta-block h-[280px] bg-black rounded-3xl p-8 flex flex-col justify-center items-center text-center text-white relative overflow-hidden group">
             {/* Decorative Background Elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-400/30 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-400/30 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
 
             {/* Decorative SVGs */}
             <svg
@@ -292,4 +292,4 @@ const FeaturedDestinationsList = ({ destinations }) => {
   );
 };
 
-export default FeaturedDestinationsList;
+export default DestinationsGalleryList;

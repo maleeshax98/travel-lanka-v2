@@ -46,7 +46,7 @@ const HeroSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-5">
         <div className="text-center md:text-left">
           <div className="main-text opacity-0">
-            <h1 className="font-extrabold  text-5xl md:text-7xl ">
+            <h1 className="font-extrabold  text-5xl md:text-7xl text-orange-600">
               CeylanÉvasion
             </h1>
             <h1 className="font-caveat text-2xl md:text-4xl">
@@ -57,24 +57,27 @@ const HeroSection = () => {
               hospitality of,
             </p>
             {/* <button className="primary-button mt-5 z-[500]">Explore Now</button> */}
-            <ButtonMain
-              text={"Explore Now"}
-              icon={
-                <svg
-                  className="transform transition-transform duration-300 group-hover:translate-x-1"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              }
-            />
+            <div className="mt-10">
+              <ButtonMain
+                text={"Explore Now"}
+                icon={
+                  <svg
+                    className="transform transition-transform duration-300 group-hover:translate-x-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                }
+                styles={"bg-orange-600 hover:bg-orange-700"}
+              />
+            </div>
           </div>
 
           <h1 className="sri-lanka font-extrabold text-[140px] text-left md:text-[320px] md:leading-[270px] z-[-10]  absolute left-0 bottom-0 opacity-10">
