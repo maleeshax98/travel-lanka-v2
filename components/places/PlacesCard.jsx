@@ -13,7 +13,7 @@ import {
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
 
-const TrendingProductCard = ({ data }) => {
+const PlacesCard = ({ data }) => {
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
@@ -25,10 +25,10 @@ const TrendingProductCard = ({ data }) => {
         />
         <div className="flex justify-between p-1">
           <CardAction>
-            <Badge variant="secondary">{data?.productType?.title}</Badge>
+            <Badge variant="secondary">{data?.placeType?.name}</Badge>
           </CardAction>
           <CardAction>
-            <Badge variant="secondary">{data?.rating}</Badge>
+            {/* <Badge variant="secondary">{data?.rating}</Badge> */}
             <Badge variant="secondary">{data.location[0].location}</Badge>
           </CardAction>
         </div>
@@ -40,25 +40,24 @@ const TrendingProductCard = ({ data }) => {
             A practical talk on component APIs, accessibility, and shipping
             faster.
           </CardDescription>
-          <CardDescription>
-            <h1>Price {data?.price}</h1>
-          </CardDescription>
         </CardHeader>
         <CardFooter>
-          <a href={data?.link}>
+          <div className="w-full">
+            {/* <a href={data?.link}> */}
             <Button className="w-full">
               Visit <ArrowRight />
             </Button>
-          </a>
-          <a href={data?.link}>
+            {/* </a> */}
+            {/* <a href={data?.link}> */}
             <Button className="w-full">
               Read More <ArrowRight />
             </Button>
-          </a>
+            {/* </a> */}
+          </div>
         </CardFooter>
       </Card>
     </div>
   );
 };
 
-export default TrendingProductCard;
+export default PlacesCard;

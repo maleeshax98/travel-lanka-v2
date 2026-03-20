@@ -8,7 +8,6 @@ import Footer from "@/components/footer/Footer";
 
 const page = async () => {
   const destinations = await getDestinations();
-  console.log(destinations);
   return (
     <main>
       <Navbar />

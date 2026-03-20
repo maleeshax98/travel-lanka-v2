@@ -13,24 +13,24 @@ import {
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
 
-const TrendingProductCard = ({ data }) => {
+const ActivitiesCard = ({ data }) => {
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
         <div className="absolute inset-0 z-30 aspect-video " />
         <img
-          src={getImageURL(data.mainImage.asset)}
+          src={getImageURL(data.image.asset)}
           alt="Event cover"
           className="relative z-20 aspect-video w-full object-cover"
         />
         <div className="flex justify-between p-1">
           <CardAction>
-            <Badge variant="secondary">{data?.productType?.title}</Badge>
+            <Badge variant="secondary">{data?.activityCategory?.name}</Badge>
           </CardAction>
-          <CardAction>
+          {/* <CardAction>
             <Badge variant="secondary">{data?.rating}</Badge>
             <Badge variant="secondary">{data.location[0].location}</Badge>
-          </CardAction>
+          </CardAction> */}
         </div>
         <CardHeader>
           <CardTitle className={"text-lg font-semibold"}>
@@ -40,25 +40,25 @@ const TrendingProductCard = ({ data }) => {
             A practical talk on component APIs, accessibility, and shipping
             faster.
           </CardDescription>
-          <CardDescription>
-            <h1>Price {data?.price}</h1>
-          </CardDescription>
         </CardHeader>
         <CardFooter>
-          <a href={data?.link}>
+          <div className=" w-full">
+            {/* <a href={data?.link}> */}
             <Button className="w-full">
               Visit <ArrowRight />
             </Button>
-          </a>
-          <a href={data?.link}>
+            {/* </a> */}
+            {/* <a href={data?.link}> */}
+            <br />
             <Button className="w-full">
               Read More <ArrowRight />
             </Button>
-          </a>
+            {/* </a> */}
+          </div>
         </CardFooter>
       </Card>
     </div>
   );
 };
 
-export default TrendingProductCard;
+export default ActivitiesCard;
