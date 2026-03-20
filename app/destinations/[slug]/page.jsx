@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import PlacesCard from "@/components/places/PlacesCard";
 import { getDestination } from "@/sanity/destinations/getDestinationsData";
 import {
+  getActivityTypes,
   getProductType,
   getRecommandedProducts,
   getRecommendedActivites,
@@ -14,6 +15,7 @@ import {
 } from "@/sanity/destinations/getRecommended";
 
 import RecommandedProducts from "@/components/recommanded/products/RecommandedProducts";
+import RecommandedActivities from "@/components/recommanded/activities/RecommandedActivities";
 
 const page = async ({ params }) => {
   const { slug } = await params;
@@ -27,6 +29,7 @@ const page = async ({ params }) => {
   const rPlaces = await getRecommendedPlaces(destination[0].location._ref);
 
   const productTypes = await getProductType(destination[0].location._ref);
+  const activityTypes = await getActivityTypes(destination[0].location._ref);
 
   return (
     <section>
@@ -48,6 +51,11 @@ const page = async ({ params }) => {
           productTypes={productTypes}
         />
         {/* Activites */}
+
+        <RecommandedActivities
+          activityTypes={activityTypes}
+          locationRef={destination[0].location._ref}
+        />
         <div className="w-full  flex flex-wrap  justify-left items-center gap-4 mt-10 p-5">
           {rActivites && rActivites.length > 0 ? (
             rActivites.map((item) => (
