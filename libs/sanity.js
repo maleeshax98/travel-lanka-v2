@@ -3,7 +3,8 @@ import { client } from "@/sanity/client";
 import { createImageUrlBuilder } from "@sanity/image-url";
 
 const { projectId, dataset } = client.config();
-const urlFor = (source) =>
+
+export const urlFor = (source) =>
   projectId && dataset
     ? createImageUrlBuilder({ projectId, dataset }).image(source)
     : null;

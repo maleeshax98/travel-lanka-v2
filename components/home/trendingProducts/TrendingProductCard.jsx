@@ -17,7 +17,7 @@ const TrendingProductCard = ({ data }) => {
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
-        <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
+        <div className="absolute inset-0 z-30 aspect-video " />
         <img
           src={getImageURL(data.mainImage.asset)}
           alt="Event cover"
@@ -29,11 +29,13 @@ const TrendingProductCard = ({ data }) => {
           </CardAction>
           <CardAction>
             <Badge variant="secondary">{data?.rating}</Badge>
-            <Badge variant="secondary">{data?.location}</Badge>
+            <Badge variant="secondary">{data?.location[0]}</Badge>
           </CardAction>
         </div>
         <CardHeader>
-          <CardTitle className={"text-lg font-semibold"}>{data?.name}</CardTitle>
+          <CardTitle className={"text-lg font-semibold"}>
+            {data?.name}
+          </CardTitle>
           <CardDescription>
             A practical talk on component APIs, accessibility, and shipping
             faster.

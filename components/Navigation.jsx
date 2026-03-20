@@ -3,11 +3,11 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import navData from "@/data/sampledata.json";
+import Link from "next/link";
 
 export default function Navigation({ data }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(false);
-
   return (
     <nav className="w-full flex items-center justify-between lg:justify-center py-6 px-6 lg:px-8  top-0 z-50 left-0 bg-transparent">
       {/* Mobile Menu Button */}
@@ -41,13 +41,23 @@ export default function Navigation({ data }) {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-50">
                   <div className="bg-white/90 backdrop-blur-lg rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] py-2 px-1 border border-white/50">
                     <ul className="flex flex-col">
-                      {item.subItems?.map((subItem, subIdx) => (
-                        <li
-                          key={subIdx}
-                          className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium"
-                        >
-                          {subItem.name}
+                      <Link href={`/${item.slug.current}`}>
+                        <li className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium">
+                          All
                         </li>
+                      </Link>
+                      {item.subItems?.map((subItem, subIdx) => (
+                        <Link
+                          href={`/${item.slug.current}/${subItem.slug.current}`}
+                          key={subIdx}
+                        >
+                          <li
+                            key={subIdx}
+                            className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium"
+                          >
+                            {subItem.name}
+                          </li>
+                        </Link>
                       ))}
                     </ul>
                   </div>
