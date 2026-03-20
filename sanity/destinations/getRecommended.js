@@ -63,9 +63,30 @@ const getRecommendedActivites = async (locationRef, activityCategory) => {
   return rActivites;
 };
 
-const getRecommendedPlaces = async (locationRef) => {
-  const PLACES_QUERY = `*[_type=='places' && defined(slug.current) && '${locationRef}' in location[]._ref ] | order(publishedAt desc)[0...6]{_id, name, slug, mainImage,  location[]->{location}, placeType->{name}}`;
-  const rPlaces = await client.fetch(PLACES_QUERY, {}, options);
+const getPlacesTypes = async (locationRef) => {
+  const QUERY = `*[_type == 'places' && '${locationRef}' in location[]._ref ]{
+  _id, placeType -> {name, slug}
+}`;
+  const res = await client.fetch(QUERY, {}, options);
+
+  let placeTypes = [];
+  res.forEach((item) => {
+    if (!placeTypes.includes(item.placeType.name)) {
+      placeTypes.push(item.placeType.name);
+    }
+  });
+
+  return placeTypes;
+};
+
+const getRecommendedPlaces = async (locationRef, placeType) => {
+  if (!locationRef || !placeType) return [];
+  const PLACES_QUERY = `*[_type=='places' && defined(slug.current) && $locationRef in location[]._ref && placeType->name == $placeType ] | order(publishedAt desc)[0...6]{_id, name, slug, mainImage,  location[]->{location}, placeType->{name}}`;
+  const rPlaces = await client.fetch(
+    PLACES_QUERY,
+    { locationRef, placeType },
+    options,
+  );
 
   return rPlaces;
 };
@@ -76,4 +97,5 @@ export {
   getRecommendedActivites,
   getRecommendedPlaces,
   getActivityTypes,
+  getPlacesTypes,
 };

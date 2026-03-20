@@ -52,7 +52,7 @@ const DestinationCard = ({ data }) => {
           />
           <CardHeader>
             <CardTitle className="font-bold text-lg">{data.name}</CardTitle>
-            <Badge variant="secondary">{data.location}</Badge>
+            <Badge variant="secondary">{data?.location?.location}</Badge>
           </CardHeader>
         </Card>
       </Link>

@@ -18,6 +18,15 @@ const getNavbarData = async () => {
   const activityData = await client.fetch(ACTIVITY_QUERY, {}, options);
   const destinations = await client.fetch(DESTINATIONS_QUERY, {}, options);
 
+  const editedNavBarData = [];
+
+  navbarData.forEach((item) => {
+    editedNavBarData.push({
+      ...item,
+      slug: { _type: "slug", current: `places/${item.slug.current}` },
+    });
+  });
+
   const des = {
     name: "Destinations",
     slug: { _type: "slug", current: "destinations" },
@@ -26,11 +35,11 @@ const getNavbarData = async () => {
 
   const ac = {
     name: "Things to Do",
-    slug: { _type: "slug", current: "activities" },
+    slug: { _type: "slug", current: "things-to-do" },
     subItems: activityData,
   };
 
-  return [des, ...navbarData, ac];
+  return [des, ...editedNavBarData, ac];
 };
 
 export { getNavbarData };

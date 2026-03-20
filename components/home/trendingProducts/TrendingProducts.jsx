@@ -5,7 +5,6 @@ import { getTrendingProducts } from "@/sanity/getTrendingProducts";
 
 const TrendingProducts = async () => {
   const data = await getTrendingProducts();
-  console.log(data[0].location[0].location);
   return (
     <section className="">
       <div>

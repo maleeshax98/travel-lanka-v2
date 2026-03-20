@@ -24,8 +24,8 @@ const RecommandedProducts = ({ locationRef, productTypes }) => {
   return (
     <div>
       <div className="p-5">
-        <Tabs defaultValue={productTypes[0]} className="w-[400px]">
-          <TabsList>
+        <Tabs defaultValue={productTypes[0]} className="w-full">
+          <TabsList className="w-full">
             {productTypes.map((d, i) => (
               <TabsTrigger
                 key={i}

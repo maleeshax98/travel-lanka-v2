@@ -8,6 +8,7 @@ import PlacesCard from "@/components/places/PlacesCard";
 import { getDestination } from "@/sanity/destinations/getDestinationsData";
 import {
   getActivityTypes,
+  getPlacesTypes,
   getProductType,
   getRecommandedProducts,
   getRecommendedActivites,
@@ -16,20 +17,17 @@ import {
 
 import RecommandedProducts from "@/components/recommanded/products/RecommandedProducts";
 import RecommandedActivities from "@/components/recommanded/activities/RecommandedActivities";
+import RecommandedPlaces from "@/components/recommanded/places/RecommandedPlaces";
 
 const page = async ({ params }) => {
   const { slug } = await params;
   const destination = await getDestination(slug);
-  // const rProducts = await getRecommandedProducts(destination[0].location._ref);
-  // console.log(rProducts);
-  const rActivites = await getRecommendedActivites(
-    destination[0].location._ref,
-  );
 
   const rPlaces = await getRecommendedPlaces(destination[0].location._ref);
 
   const productTypes = await getProductType(destination[0].location._ref);
   const activityTypes = await getActivityTypes(destination[0].location._ref);
+  const placeTypes = await getPlacesTypes(destination[0].location._ref);
 
   return (
     <section>
@@ -56,23 +54,19 @@ const page = async ({ params }) => {
           activityTypes={activityTypes}
           locationRef={destination[0].location._ref}
         />
-        <div className="w-full  flex flex-wrap  justify-left items-center gap-4 mt-10 p-5">
-          {rActivites && rActivites.length > 0 ? (
-            rActivites.map((item) => (
-              <ActivitiesCard key={item._id} data={item} />
-            ))
-          ) : (
-            <h1>No Data Found</h1>
-          )}
-        </div>
+
         {/* Places */}
-        <div className="w-full  flex flex-wrap  justify-left items-center gap-4 mt-10 p-5">
+        <RecommandedPlaces
+          locationRef={destination[0].location._ref}
+          placesTypes={placeTypes}
+        />
+        {/* <div className="w-full  flex flex-wrap  justify-left items-center gap-4 mt-10 p-5">
           {rPlaces && rPlaces.length > 0 ? (
             rPlaces.map((item) => <PlacesCard key={item._id} data={item} />)
           ) : (
             <h1>No Data Found</h1>
           )}
-        </div>
+        </div> */}
       </div>
       <Footer />
     </section>

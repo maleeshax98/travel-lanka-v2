@@ -4,12 +4,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useRecommendedActivities } from "@/hooks/useRecommendedActivities";
-import ActivitiesCard from "@/components/activities/ActivitiesCard";
+import PlacesCard from "@/components/places/PlacesCard";
+import { useRecommendedPlaces } from "@/hooks/useRecommendedPlaces";
 
-const RecommandedActivities = ({ locationRef, activityTypes }) => {
-  const [selectedValue, setSelectedValue] = useState(activityTypes[0]);
-  const { data, loading, error } = useRecommendedActivities(
+const RecommandedPlaces = ({ locationRef, placesTypes }) => {
+  const [selectedValue, setSelectedValue] = useState(placesTypes[0]);
+  const { data, loading, error } = useRecommendedPlaces(
     locationRef,
     selectedValue,
   );
@@ -20,21 +20,22 @@ const RecommandedActivities = ({ locationRef, activityTypes }) => {
         Error: {error}
       </div>
     );
-
   return (
     <div>
       <div className="p-5">
-        <Tabs defaultValue={activityTypes[0]} className="w-full">
+        <Tabs defaultValue={placesTypes[0]} className="w-full">
           <TabsList className="w-full">
-            {activityTypes.map((d, i) => (
-              <TabsTrigger
-                key={i}
-                value={d}
-                onClick={() => setSelectedValue(d)}
-              >
-                {d}
-              </TabsTrigger>
-            ))}
+            {placesTypes && placesTypes.length > 0
+              ? placesTypes.map((item) => (
+                  <TabsTrigger
+                    key={item}
+                    value={item}
+                    onClick={() => setSelectedValue(item)}
+                  >
+                    {item}
+                  </TabsTrigger>
+                ))
+              : null}
           </TabsList>
         </Tabs>
       </div>
@@ -53,7 +54,7 @@ const RecommandedActivities = ({ locationRef, activityTypes }) => {
           ))
         ) : data.length > 0 ? (
           data && data.length > 0 ? (
-            data.map((item) => <ActivitiesCard key={item._id} data={item} />)
+            data.map((item) => <PlacesCard key={item._id} data={item} />)
           ) : (
             <h1>No Data Found</h1>
           )
@@ -67,4 +68,4 @@ const RecommandedActivities = ({ locationRef, activityTypes }) => {
   );
 };
 
-export default RecommandedActivities;
+export default RecommandedPlaces;
