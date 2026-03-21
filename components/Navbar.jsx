@@ -8,21 +8,21 @@ const Navbar = async () => {
     <>
       <Navigation
         data={[
-          {
-            name: "Home",
-            subItems: [],
-            slug: { _type: "slug", current: "" },
-          },
-          {
-            name: "The Island",
-            subItems: [],
-            slug: { _type: "slug", current: "sri-lanka" },
-          },
-          {
-            name: "Travel Tips",
-            subItems: [],
-            slug: { _type: "slug", current: "tips" },
-          },
+          // {
+          //   name: "Home",
+          //   subItems: [],
+          //   slug: { _type: "slug", current: "" },
+          // },
+          // {
+          //   name: "The Island",
+          //   subItems: [],
+          //   slug: { _type: "slug", current: "sri-lanka" },
+          // },
+          // {
+          //   name: "Travel Tips",
+          //   subItems: [],
+          //   slug: { _type: "slug", current: "tips" },
+          // },
           ...navData,
         ]}
       />
