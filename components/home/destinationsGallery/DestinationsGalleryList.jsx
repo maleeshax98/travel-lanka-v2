@@ -195,7 +195,7 @@ const DestinationsGalleryList = ({ destinations }) => {
           {destinations[0] && (
             <DestinationCard
               title={destinations[0].name}
-              location={destinations[0].location}
+              location={destinations[0].location.location}
               image={
                 getImageURL(destinations[0].mainImage) ||
                 "https://placehold.co/600x400"
@@ -208,7 +208,7 @@ const DestinationsGalleryList = ({ destinations }) => {
           {destinations[1] && (
             <DestinationCard
               title={destinations[1].name}
-              location={destinations[1].location}
+              location={destinations[1].location.location}
               image={
                 getImageURL(destinations[1].mainImage) ||
                 "https://placehold.co/600x400"
@@ -273,7 +273,7 @@ const DestinationsGalleryList = ({ destinations }) => {
           {destinations[2] && (
             <DestinationCard
               title={destinations[2].name}
-              location={destinations[2].location}
+              location={destinations[2].location.location}
               image={
                 getImageURL(destinations[2].mainImage) ||
                 "https://placehold.co/600x400"
@@ -286,7 +286,7 @@ const DestinationsGalleryList = ({ destinations }) => {
           {destinations[3] && (
             <DestinationCard
               title={destinations[3].name}
-              location={destinations[3].location}
+              location={destinations[3].location.location}
               image={
                 getImageURL(destinations[3].mainImage) ||
                 "https://placehold.co/600x400"

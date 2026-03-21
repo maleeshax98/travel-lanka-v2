@@ -19,7 +19,7 @@ const ActivitiesCard = ({ data }) => {
       <Card className="relative mx-auto w-full max-w-sm pt-0">
         <div className="absolute inset-0 z-30 aspect-video " />
         <img
-          src={getImageURL(data.image.asset)}
+          src={data.image !== null ? getImageURL(data?.image?.asset) : ''}
           alt="Event cover"
           className="relative z-20 aspect-video w-full object-cover"
         />
@@ -27,10 +27,10 @@ const ActivitiesCard = ({ data }) => {
           <CardAction>
             <Badge variant="secondary">{data?.activityCategory?.name}</Badge>
           </CardAction>
-          {/* <CardAction>
-            <Badge variant="secondary">{data?.rating}</Badge>
+          <CardAction>
+            {/* <Badge variant="secondary">{data?.rating}</Badge> */}
             <Badge variant="secondary">{data.location[0].location}</Badge>
-          </CardAction> */}
+          </CardAction>
         </div>
         <CardHeader>
           <CardTitle className={"text-lg font-semibold"}>

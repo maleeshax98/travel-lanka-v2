@@ -1,7 +1,7 @@
 import { client } from "@/sanity/client";
 
 const POSTS_QUERY = `*[_type == "destination" && defined(slug.current) && isTrending == true
-][0...6]{_id, name, slug, publishedAt, mainImage, location}`;
+][0...6]{_id, name, slug, publishedAt, mainImage, location -> {location}}`;
 
 
 

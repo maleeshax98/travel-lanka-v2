@@ -9,7 +9,7 @@ export default function Navigation({ data }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(false);
   return (
-    <nav className="w-full flex items-center justify-between lg:justify-center py-6 px-6 lg:px-8  top-0 z-50 left-0 bg-transparent">
+    <nav className="w-full flex items-center justify-between lg:justify-center py-6 px-6 lg:px-8  top-0 z-50 left-0 bg-transparent sticky bg-white">
       {/* Mobile Menu Button */}
       <div className="lg:hidden flex items-center z-50 w-full justify-start">
         <button
@@ -23,47 +23,49 @@ export default function Navigation({ data }) {
       {/* Desktop Navigation */}
       <ul className="hidden lg:flex items-center space-x-8 text-sm font-medium text-gray-700">
         {data.map((item, idx) => (
-          <li
-            key={idx}
-            className="relative flex items-center cursor-pointer hover:text-orange-600 transition whitespace-nowrap py-2"
-            onMouseEnter={() => setActiveDropdown(idx)}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            {item.name}
-            {item?.subItems && item.subItems.length > 0 && (
-              <ChevronDown size={14} className="ml-1" />
-            )}
+          <Link href={`/${item.slug.current}`} key={idx}>
+            <li
+              key={idx}
+              className="relative flex items-center cursor-pointer hover:text-orange-600 transition whitespace-nowrap py-2"
+              onMouseEnter={() => setActiveDropdown(idx)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              {item.name}
+              {item?.subItems && item.subItems.length > 0 && (
+                <ChevronDown size={14} className="ml-1" />
+              )}
 
-            {/* Desktop Dropdown items */}
-            {item?.subItems &&
-              item.subItems.length > 0 &&
-              activeDropdown === idx && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-50">
-                  <div className="bg-white/90 backdrop-blur-lg rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] py-2 px-1 border border-white/50">
-                    <ul className="flex flex-col">
-                      <Link href={`/${item.slug.current}`}>
-                        <li className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium">
-                          All
-                        </li>
-                      </Link>
-                      {item.subItems?.map((subItem, subIdx) => (
-                        <Link
-                          href={`/${item.slug.current}/${subItem.slug.current}`}
-                          key={subIdx}
-                        >
-                          <li
-                            key={subIdx}
-                            className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium"
-                          >
-                            {subItem.name}
+              {/* Desktop Dropdown items */}
+              {item?.subItems &&
+                item.subItems.length > 0 &&
+                activeDropdown === idx && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-48 z-50">
+                    <div className="bg-white/90 backdrop-blur-lg rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] py-2 px-1 border border-white/50">
+                      <ul className="flex flex-col">
+                        <Link href={`/${item.slug.current}`}>
+                          <li className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium">
+                            All
                           </li>
                         </Link>
-                      ))}
-                    </ul>
+                        {item.subItems?.map((subItem, subIdx) => (
+                          <Link
+                            href={`/${item.slug.current}/${subItem.slug.current}`}
+                            key={subIdx}
+                          >
+                            <li
+                              key={subIdx}
+                              className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium"
+                            >
+                              {subItem.name}
+                            </li>
+                          </Link>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              )}
-          </li>
+                )}
+            </li>
+          </Link>
         ))}
       </ul>
 

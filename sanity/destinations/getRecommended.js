@@ -52,7 +52,7 @@ const getActivityTypes = async (locationRef) => {
 const getRecommendedActivites = async (locationRef, activityCategory) => {
   if (!locationRef || !activityCategory) return [];
 
-  const ACTIVITIES_QUERY = `*[_type=='activity' && defined(slug.current) && $locationRef in location[]._ref && activityCategory->name == $activityCategory ] | order(publishedAt desc)[0...6]{_id, name, slug, image, location, activityCategory-> {_id, name, slug}}`;
+  const ACTIVITIES_QUERY = `*[_type=='activity' && defined(slug.current) && $locationRef in location[]._ref && activityCategory->name == $activityCategory ] | order(publishedAt desc)[0...6]{_id, name, slug, image, location[] -> {location}, activityCategory-> {_id, name, slug}}`;
 
   const rActivites = await client.fetch(
     ACTIVITIES_QUERY,

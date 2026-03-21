@@ -16,4 +16,11 @@ const getPlacesData = async (ref) => {
   return data;
 };
 
-export { getPlaces, getPlacesData };
+const getPlaceData = async (slug) => {
+  const QUERY = `*[_type == 'places' && defined(slug.current) && slug.current == $slug]{_id, name, slug, mainImage, link, body, location[]->{location}, placeType->{name}}`;
+
+  const data = await client.fetch(QUERY, { slug }, options);
+  return data;
+};
+
+export { getPlaces, getPlacesData, getPlaceData };

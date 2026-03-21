@@ -1,76 +1,141 @@
-import ActivitiesCard from "@/components/activities/ActivitiesCard";
 import BlogContent from "@/components/BlogContent";
 import Footer from "@/components/footer/Footer";
-import Header from "@/components/Header";
-import TrendingProductCard from "@/components/home/trendingProducts/TrendingProductCard";
 import Navbar from "@/components/Navbar";
-import PlacesCard from "@/components/places/PlacesCard";
+import Header from "@/components/Header";
 import { getDestination } from "@/sanity/destinations/getDestinationsData";
+// Your Sanity image helper
 import {
   getActivityTypes,
   getPlacesTypes,
   getProductType,
-  getRecommandedProducts,
-  getRecommendedActivites,
   getRecommendedPlaces,
 } from "@/sanity/destinations/getRecommended";
 
 import RecommandedProducts from "@/components/recommanded/products/RecommandedProducts";
 import RecommandedActivities from "@/components/recommanded/activities/RecommandedActivities";
 import RecommandedPlaces from "@/components/recommanded/places/RecommandedPlaces";
+import getImageURL from "@/libs/sanity";
 
-const page = async ({ params }) => {
+const Page = async ({ params }) => {
   const { slug } = await params;
-  const destination = await getDestination(slug);
+  const destinationData = await getDestination(slug);
+  const destination = destinationData[0];
 
-  const rPlaces = await getRecommendedPlaces(destination[0].location._ref);
+  if (!destination) return null;
 
-  const productTypes = await getProductType(destination[0].location._ref);
-  const activityTypes = await getActivityTypes(destination[0].location._ref);
-  const placeTypes = await getPlacesTypes(destination[0].location._ref);
+  const locationRef = destination.location._ref;
+
+  // Parallel data fetching for better performance
+  const [productTypes, activityTypes, placeTypes] = await Promise.all([
+    getProductType(locationRef),
+    getActivityTypes(locationRef),
+    getPlacesTypes(locationRef),
+  ]);
 
   return (
-    <section>
-      <div>
-        <Navbar />
-      </div>
-      <div className=" flex flex-col justify-center items-center w-full ">
-        <div>
-          <Header subtitle={"Explore Sri Lanka"} title={destination[0].name} />
-        </div>
-        <div className="p-10 max-w-7xl mx-auto">
-          <BlogContent value={destination[0].body} />
-        </div>
-      </div>
-      <div>
-        {/* Products */}
-        <RecommandedProducts
-          locationRef={destination[0].location._ref}
-          productTypes={productTypes}
-        />
-        {/* Activites */}
+    <main className="bg-[#fcfcfc] min-h-screen">
+      <Navbar />
 
-        <RecommandedActivities
-          activityTypes={activityTypes}
-          locationRef={destination[0].location._ref}
-        />
+      {/* --- CINEMATIC HERO SECTION --- */}
+      <section className="relative h-[90vh] w-full flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={getImageURL(destination.mainImage.asset)}
+            alt={destination.name}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#fcfcfc]" />
+        </div>
 
-        {/* Places */}
-        <RecommandedPlaces
-          locationRef={destination[0].location._ref}
-          placesTypes={placeTypes}
-        />
-        {/* <div className="w-full  flex flex-wrap  justify-left items-center gap-4 mt-10 p-5">
-          {rPlaces && rPlaces.length > 0 ? (
-            rPlaces.map((item) => <PlacesCard key={item._id} data={item} />)
-          ) : (
-            <h1>No Data Found</h1>
-          )}
-        </div> */}
-      </div>
+        {/* Hero Title - Large and Elegant */}
+        <div className="relative z-10 text-center space-y-4 px-4">
+          <p className="text-white/90 uppercase tracking-[0.4em] text-xs md:text-sm font-caveat drop-shadow-md">
+            Discover Sri Lanka
+          </p>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-white font-bold tracking-tight drop-shadow-2xl">
+            {destination.name}
+          </h1>
+          <div className="w-24 h-1 bg-white mx-auto mt-6 rounded-full opacity-80" />
+        </div>
+      </section>
+
+      {/* --- CONTENT LAYER --- */}
+      <section className="relative z-20 -mt-32 w-full ">
+        <div className="bg-white rounded-3xl overflow-hidden border border-gray-100">
+          {/* Internal Navigation or Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 border-b border-gray-50 text-center py-8 bg-gray-50/50">
+            <div>
+              <p className="text-[10px] uppercase text-gray-400 font-bold tracking-widest">
+                Region
+              </p>
+              <p className="text-sm font-semibold text-gray-800 uppercase">
+                Central Province
+              </p>
+            </div>
+            <div>
+              <p className="text-[10px] uppercase text-gray-400 font-bold tracking-widest">
+                Best Time
+              </p>
+              <p className="text-sm font-semibold text-gray-800 uppercase">
+                Dec — Apr
+              </p>
+            </div>
+            {/* Add more stats as needed */}
+          </div>
+
+          <div className="p-8 md:p-16 lg:p-20">
+            {/* Cinematic Article Body */}
+            <article
+              className="prose prose-stone prose-lg max-w-none 
+              prose-headings:font-serif prose-headings:font-bold 
+              prose-img:rounded-2xl prose-img:shadow-lg
+              prose-p:leading-relaxed prose-p:text-gray-600"
+            >
+              <BlogContent value={destination.body} />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* --- RECOMMENDATIONS SECTION --- */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 space-y-24">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 border-l-4 border-black pl-6">
+              Things to Do in {destination.name}
+            </h2>
+            <RecommandedActivities
+              activityTypes={activityTypes}
+              locationRef={locationRef}
+            />
+          </div>
+
+          <div className="space-y-6">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 border-l-4 border-black pl-6">
+              Essential Products
+            </h2>
+            <RecommandedProducts
+              locationRef={locationRef}
+              productTypes={productTypes}
+            />
+          </div>
+
+          <div className="space-y-6">
+            <h2 className="text-3xl font-serif font-bold text-gray-900 border-l-4 border-black pl-6">
+              Nearby Places
+            </h2>
+            <RecommandedPlaces
+              locationRef={locationRef}
+              placesTypes={placeTypes}
+            />
+          </div>
+        </div>
+      </section>
+
       <Footer />
-    </section>
+    </main>
   );
 };
 
-export default page;
+export default Page;

@@ -77,7 +77,7 @@ const CategoryList = ({ data }) => {
                   <h3 className="text-2xl font-bold mb-1">{d.name}</h3>
                   <div className="flex items-center text-sm text-gray-200">
                     <MapPin size={14} className="mr-1" />
-                    {d.location}
+                    {d.location.location}
                   </div>
                 </div>
 

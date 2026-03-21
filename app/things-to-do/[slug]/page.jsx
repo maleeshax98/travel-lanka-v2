@@ -1,14 +1,18 @@
+import ActivitiesCard from "@/components/activities/ActivitiesCard";
+import ActivityCatoCard from "@/components/activities/ActivityCatoCard";
 import BlogContent from "@/components/BlogContent";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/Navbar";
 import getImageURL from "@/libs/sanity";
 import { getPlaceData } from "@/sanity/places/getPlacesData";
+import { getActivities } from "@/sanity/things-to-do/getThings";
 import React from "react";
 
 const Page = async ({ params }) => {
   const { slug } = await params;
-  const place = await getPlaceData(slug);
-  if (!place)
+  const activity = await getActivities(slug);
+  console.log(activity);
+  if (!activity)
     return (
       <div className="min-h-screen flex items-center justify-center">
         Loading...
@@ -23,8 +27,10 @@ const Page = async ({ params }) => {
       <section className="relative h-[80vh] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={getImageURL(place[0].mainImage.asset)}
-            alt={place[0].name}
+            src={
+              activity.image !== null ? getImageURL(activity.image.asset) : ""
+            }
+            alt={activity.name}
             className="w-full h-full object-cover scale-105 animate-subtle-zoom"
           />
           {/* Gradient Overlay for Text Readability */}
@@ -33,10 +39,10 @@ const Page = async ({ params }) => {
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <span className="text-white/80 uppercase tracking-[0.3em] text-sm mb-4 animate-fade-in-up">
-            Explore {place[0].placeType?.name || "Destination"}
+            Explore {activity.placeType?.name || "Activity"}
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold drop-shadow-2xl">
-            {place[0].name}
+            {activity.name}
           </h1>
         </div>
       </section>
@@ -52,17 +58,19 @@ const Page = async ({ params }) => {
               </span>
               <span className="text-gray-800 font-medium">Sri Lanka</span>
             </div>
-            <div className="flex space-x-4">
-              {/* Place for social share or rating badges */}
-              <div className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold">
-                {place[0].placeType?.name}
-              </div>
-            </div>
           </div>
 
           {/* Body Content */}
           <div className="prose prose-lg lg:prose-xl max-w-none prose-headings:font-serif prose-p:text-gray-600 leading-relaxed">
-            <BlogContent value={place[0].body} />
+            <BlogContent value={activity.body} />
+          </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-6 pt-16 pb-24">
+          <h2 className="text-3xl font-bold mb-6">Activities in {activity.name}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {activity.activities.map((activity) => (
+              <ActivitiesCard key={activity._id} data={activity} />
+            ))}
           </div>
         </div>
       </article>
