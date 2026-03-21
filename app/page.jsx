@@ -9,8 +9,11 @@ import Footer from "@/components/footer/Footer";
 import TrendingProducts from "@/components/home/trendingProducts/TrendingProducts";
 import Navbar from "@/components/Navbar";
 import Activities from "@/components/home/activities/Activities";
+import { getRecentBlogPosts } from "@/sanity/blog/getPosts";
+import BlogSection from "@/components/home/blog/BlogSection";
 
-const page = () => {
+const page = async () => {
+  const posts = await getRecentBlogPosts(3);
   return (
     <main>
       {/* <Navigation /> */}
@@ -27,6 +30,7 @@ const page = () => {
       <DestinationsGallery />
 
       {/* blog posts */}
+      <BlogSection posts={posts} />
 
       <Contact />
       <Footer />

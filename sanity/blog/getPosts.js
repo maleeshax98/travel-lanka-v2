@@ -19,4 +19,13 @@ const getBlogPost = async (slug) => {
   return res;
 };
 
-export { getBlogPosts, getBlogPost };
+const getRecentBlogPosts = async (limit = 3) => {
+  const QUERY = `*[_type == 'blog'] | order(_createdAt desc) [0...${limit}]{
+  title, slug, image, body}`;
+
+  const res = await client.fetch(QUERY, {}, options);
+
+  return res;
+};
+
+export { getBlogPosts, getBlogPost, getRecentBlogPosts };

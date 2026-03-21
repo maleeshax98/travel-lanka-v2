@@ -7,7 +7,6 @@ const page = async () => {
   const posts = await getBlogPosts();
   return (
     <div>
-      <Navbar />
       <div>
         <BlogPage posts={posts} />
       </div>
