@@ -1,7 +1,8 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
-const DestinationCard = ({ title, location, image, className = "" }) => {
+const DestinationCard = ({ title, location, image, className = "", slug }) => {
   return (
     <div>
       <div>
@@ -30,9 +31,11 @@ const DestinationCard = ({ title, location, image, className = "" }) => {
             </div>
 
             {/* Explore Button / Arrow Icon */}
-            <button className="bg-transparent border-2 border-white/80 hover:bg-white hover:text-black hover:border-white text-white rounded-full p-2 transition-all duration-300">
-              <ArrowRight size={20} />
-            </button>
+            <Link href={slug ? `/destinations/${slug}` : "/destinations"}>
+              <button className="bg-transparent cursor-pointer border-2 border-white/80 hover:bg-white hover:text-black hover:border-white text-white rounded-full p-2 transition-all duration-300">
+                <ArrowRight size={20} />
+              </button>
+            </Link>
           </div>
         </div>
       </div>

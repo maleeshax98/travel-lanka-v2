@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 import getImageURL from "@/libs/sanity";
 import DestinationCard from "./DestinationCard";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 const DestinationsGalleryList = ({ destinations }) => {
   const containerRef = useRef(null);
@@ -200,6 +201,7 @@ const DestinationsGalleryList = ({ destinations }) => {
                 getImageURL(destinations[0].mainImage) ||
                 "https://placehold.co/600x400"
               }
+              slug={destinations[0].slug.current}
               className="h-[280px]"
             />
           )}
@@ -213,6 +215,7 @@ const DestinationsGalleryList = ({ destinations }) => {
                 getImageURL(destinations[1].mainImage) ||
                 "https://placehold.co/600x400"
               }
+              slug={destinations[1].slug.current}
               className="h-[280px]"
             />
           )}
@@ -261,9 +264,11 @@ const DestinationsGalleryList = ({ destinations }) => {
             <h4 className="text-4xl font-bold mb-8 relative z-10 transition-transform duration-500 delay-75 group-hover:-translate-y-1">
               Explore All Destinations
             </h4>
-            <button className="flex items-center gap-2 bg-[#FF8C38] hover:bg-orange-500 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-500 delay-150 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 relative z-10">
-              <ArrowRight size={16} /> Explore
-            </button>
+            <Link href={"/destinations"}>
+              <button className="flex items-center gap-2 cursor-pointer bg-[#FF8C38] hover:bg-orange-500 text-white px-6 py-3 rounded-full text-sm font-medium transition-all duration-500 delay-150 shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 relative z-10">
+                <ArrowRight size={16} /> Explore
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -278,6 +283,7 @@ const DestinationsGalleryList = ({ destinations }) => {
                 getImageURL(destinations[2].mainImage) ||
                 "https://placehold.co/600x400"
               }
+              slug={destinations[2].slug.current}
               className="h-[432px]" // Height to match roughly Top Left + Half of Middle Left
             />
           )}
@@ -291,6 +297,7 @@ const DestinationsGalleryList = ({ destinations }) => {
                 getImageURL(destinations[3].mainImage) ||
                 "https://placehold.co/600x400"
               }
+              slug={destinations[3].slug.current}
               className="h-[432px]" // Height to match roughly Half of Middle Left + Bottom CTA + gaps
             />
           )}

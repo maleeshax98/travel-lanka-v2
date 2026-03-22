@@ -13,6 +13,7 @@ import Autoplay from "embla-carousel-autoplay";
 import ButtonMain from "@/components/ui/ButtonMain";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
+import Link from "next/link";
 
 const ActivitesList = ({ data }) => {
   const plugin = useRef(Autoplay({ delay: 1500, stopOnInteraction: true }));
@@ -47,10 +48,12 @@ const ActivitesList = ({ data }) => {
         </Carousel>
       </div>
       <div className="flex justify-center items-center">
-        <ButtonMain
-          text="Explore More"
-          icon={<ArrowRight className="w-4 h-4" />}
-        />
+        <Link href={"/things-to-do"}>
+          <ButtonMain
+            text="Explore More"
+            icon={<ArrowRight className="w-4 h-4" />}
+          />
+        </Link>
       </div>
     </section>
   );
