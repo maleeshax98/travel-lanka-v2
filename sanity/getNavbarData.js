@@ -2,13 +2,13 @@
 
 import { client } from "@/sanity/client";
 
-const POSTS_QUERY = `*[_type == "placesCategory" && defined(slug.current)
-][0...10]{_id, name, slug, "subItems": *[ _type == "places" && references(^._id)][0...10]{_id, name, slug}}`;
+const POSTS_QUERY = `*[_type == "placesCategoryType" && defined(slug.current)
+][0...10]{_id, name, slug, "subItems": *[ _type == "placesType" && references(^._id)][0...10]{_id, name, slug}}`;
 
-const DESTINATIONS_QUERY = `*[_type == "destination" && defined(slug.current)
+const DESTINATIONS_QUERY = `*[_type == "destinationsType" && defined(slug.current)
 ][0...10]{_id, name, slug}`;
 
-const ACTIVITY_QUERY = `*[_type == "activityCategory" && defined(slug.current)
+const ACTIVITY_QUERY = `*[_type == "activityCategoryType" && defined(slug.current)
 ][0...10]{_id, name, slug}`;
 
 const options = { next: { revalidate: 30 } };

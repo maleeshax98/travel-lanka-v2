@@ -60,13 +60,17 @@ const DestinationCard = ({ data }) => {
           />
           <CardHeader>
             <CardTitle className="font-bold text-lg">{data.name}</CardTitle>
-            <Badge variant="secondary">{data?.location?.location}</Badge>
-            <CardDescription className="text-xs ">
-              {data?.intro}
+            <Badge variant="secondary">{data?.city?.province?.name}</Badge>
+            <CardDescription className="text-xs mt-3">
+              {data?.introduction}
             </CardDescription>
           </CardHeader>
-          <CardFooter className={'bg-white'}>
-            <Button className={'bg-black text-white hover:translate-x-1 transition-all duration-300 ease-in-out'}>
+          <CardFooter className={"bg-white"}>
+            <Button
+              className={
+                "bg-black text-white hover:translate-x-1 transition-all duration-300 ease-in-out p-5 rounded-full cursor-pointer"
+              }
+            >
               View <ArrowRight />{" "}
             </Button>
           </CardFooter>

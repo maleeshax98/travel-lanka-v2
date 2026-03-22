@@ -10,7 +10,7 @@ const ActivityCard = ({ data }) => {
       <figure className="shrink-0">
         <div className="relative overflow-hidden rounded-md">
           <Image
-            src={getImageURL(data.image.asset)}
+            src={getImageURL(data.mainImage.asset)}
             alt={`Photo by`}
             className="aspect-[3/4] h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-80"
             width={300}

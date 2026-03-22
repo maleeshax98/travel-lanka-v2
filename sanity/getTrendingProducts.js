@@ -2,9 +2,8 @@
 
 import { client } from "@/sanity/client";
 
-const POSTS_QUERY = `*[_type == "product" && defined(slug.current) && isTrending == true
-][0...6]{_id, name, slug, mainImage, location[]->{_id, location}, price, rating, link, description,productType->{
-title}}`;
+const POSTS_QUERY = `*[_type == "productType" && defined(slug.current) && isTrending == true
+][0...6]{_id, name, slug, mainImage, introduction, address, price, contactNumbers, isTrending, link, cities[]->{name, slug}, rating}`;
 
 const options = { next: { revalidate: 30 } };
 

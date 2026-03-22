@@ -23,8 +23,7 @@ const Page = async ({ params }) => {
 
   if (!destination) return null;
 
-  const locationRef = destination.location._ref;
-
+  const locationRef = destination.city._id;
   // Parallel data fetching for better performance
   const [productTypes, activityTypes, placeTypes] = await Promise.all([
     getProductType(locationRef),
@@ -70,7 +69,7 @@ const Page = async ({ params }) => {
                 Province
               </p>
               <p className="text-sm font-semibold text-gray-800 uppercase">
-                {destination?.province}
+                {destination?.city?.province?.name}
               </p>
             </div>
             <div>

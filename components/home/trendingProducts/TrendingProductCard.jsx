@@ -17,7 +17,6 @@ import { MapPin } from "lucide-react";
 import { Phone } from "lucide-react";
 
 const TrendingProductCard = ({ data }) => {
-  console.log(data);
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0 ">
@@ -29,11 +28,11 @@ const TrendingProductCard = ({ data }) => {
         />
         <div className="flex justify-between p-1">
           <CardAction>
-            <Badge variant="secondary">{data?.productType?.title}</Badge>
+            <Badge variant="secondary">{data?.productType?.name}</Badge>
           </CardAction>
           <CardAction>
             <Badge variant="secondary">{data?.rating}</Badge>
-            <Badge variant="secondary">{data.location[0].location}</Badge>
+            <Badge variant="secondary">{data.cities[0].name}</Badge>
           </CardAction>
         </div>
         <CardHeader>
@@ -49,7 +48,7 @@ const TrendingProductCard = ({ data }) => {
           </div>
           <div>
             <CardDescription className="text-xs ">
-              {data?.description}
+              {data?.introduction}
             </CardDescription>
             <CardDescription className="flex items-center gap-2 mt-5">
               {data?.address && <MapPin className="w-4 h-4 text-gray-500" />}
@@ -64,11 +63,13 @@ const TrendingProductCard = ({ data }) => {
           </div>
         </CardHeader>
         <CardFooter className="flex justify-between flex-wrap bg-white ">
-          <Link href={data?.link}>
-            <Button className="w-full cursor-pointer rounded-full p-5 hover:translate-x-2 transition-all duration-300">
-              View Product <ArrowRight />
-            </Button>
-          </Link>
+          {data?.link && (
+            <Link href={data?.link}>
+              <Button className="w-full cursor-pointer rounded-full p-5 hover:translate-x-2 transition-all duration-300">
+                View Product <ArrowRight />
+              </Button>
+            </Link>
+          )}
           <Link href={`/products/${data?.slug.current}`}>
             <Button className="w-full cursor-pointer bg-gray-100 text-black rounded-full hover:translate-x-2 transition-all duration-300">
               Read More <ArrowRight />

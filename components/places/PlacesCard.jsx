@@ -14,6 +14,7 @@ import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const PlacesCard = ({ data }) => {
   return (
@@ -27,22 +28,39 @@ const PlacesCard = ({ data }) => {
         />
         <div className="flex justify-between p-1">
           <CardAction>
-            <Badge variant="secondary">{data?.placeType?.name}</Badge>
+            <Badge variant="secondary">{data?.category?.name}</Badge>
           </CardAction>
           <CardAction>
             {/* <Badge variant="secondary">{data?.rating}</Badge> */}
-            <Badge variant="secondary">{data.location[0].location}</Badge>
+            <Badge variant="secondary">{data.city?.name}</Badge>
           </CardAction>
         </div>
         <CardHeader>
-          <CardTitle className={"text-lg font-semibold"}>
-            {data?.name}
-          </CardTitle>
-          <CardDescription>{data?.description}</CardDescription>
-          <CardDescription className="flex items-center gap-2 mt-5">
-            <MapPin className="w-4 h-4 text-gray-500" />
-            {data?.address}
-          </CardDescription>
+          <div className="flex justify-between flex-wrap ">
+            <div className=" max-w-[70%]">
+              <CardTitle className={"text-lg font-semibold"}>
+                {data?.name}
+              </CardTitle>
+            </div>
+            <CardDescription>
+              <h1 className="text-black font-bold text-lg"> {data?.price}</h1>
+            </CardDescription>
+          </div>
+          <div>
+            <CardDescription className="text-xs ">
+              {data?.introduction}
+            </CardDescription>
+            <CardDescription className="flex items-center gap-2 mt-5">
+              {data?.address && <MapPin className="w-4 h-4 text-gray-500" />}
+              {data?.address}
+            </CardDescription>
+            <CardDescription className="flex items-center gap-2 mt-5">
+              {data?.contactNumbers && (
+                <Phone className="w-4 h-4 text-gray-500" />
+              )}
+              {data?.contactNumbers && data?.contactNumbers[0]}
+            </CardDescription>
+          </div>
         </CardHeader>
         <CardFooter className="flex justify-between flex-wrap bg-white ">
           <Link href={`/places/${data?.slug.current}`}>

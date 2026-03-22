@@ -5,7 +5,6 @@ import Header from "../../Header";
 
 const Categories = async () => {
   const data = await getFeatured();
-  console.log(data);
   if (data.length) {
     return (
       <div>

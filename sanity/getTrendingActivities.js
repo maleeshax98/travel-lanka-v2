@@ -1,7 +1,7 @@
 import { client } from "@/sanity/client";
 
-const QUERY = `*[_type == "activityCategory" && defined(slug.current)
-][0...6]{_id, name, slug, publishedAt, image}`;
+const QUERY = `*[_type == "activityCategoryType" && defined(slug.current)
+][0...6]{_id, name, slug, publishedAt, mainImage}`;
 
 const options = { next: { revalidate: 30 } };
 
