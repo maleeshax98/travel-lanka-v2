@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
+import Link from "next/link";
+import { MapPin } from "lucide-react";
 
 const PlacesCard = ({ data }) => {
   return (
@@ -36,24 +38,18 @@ const PlacesCard = ({ data }) => {
           <CardTitle className={"text-lg font-semibold"}>
             {data?.name}
           </CardTitle>
-          <CardDescription>
-            A practical talk on component APIs, accessibility, and shipping
-            faster.
+          <CardDescription>{data?.description}</CardDescription>
+          <CardDescription className="flex items-center gap-2 mt-5">
+            <MapPin className="w-4 h-4 text-gray-500" />
+            {data?.address}
           </CardDescription>
         </CardHeader>
-        <CardFooter>
-          <div className="w-full">
-            {/* <a href={data?.link}> */}
-            <Button className="w-full">
-              Visit <ArrowRight />
-            </Button>
-            {/* </a> */}
-            {/* <a href={data?.link}> */}
-            <Button className="w-full">
+        <CardFooter className="flex justify-between flex-wrap bg-white ">
+          <Link href={`/places/${data?.slug.current}`}>
+            <Button className="w-full cursor-pointer bg-black text-white rounded-full hover:translate-x-2 transition-all duration-300 p-5">
               Read More <ArrowRight />
             </Button>
-            {/* </a> */}
-          </div>
+          </Link>
         </CardFooter>
       </Card>
     </div>

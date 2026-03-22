@@ -1,11 +1,19 @@
 "use client";
 import { useRef } from "react";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import getImageURL from "@/libs/sanity";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { ArrowRight } from "lucide-react";
 const DestinationCard = ({ data }) => {
   let mapImageRef = useRef(null);
   let cardRef = useRef(null);
@@ -17,20 +25,20 @@ const DestinationCard = ({ data }) => {
         // duration: 0.5,
         // ease: "power1.inOut",
       });
-      if (mapImageRef !== null) {
-        cardRef.current.addEventListener("mouseover", () => {
-          gsap.to(mapImageRef.current, {
-            opacity: 1,
-            duration: 0.5,
-          });
-        });
-        cardRef.current.addEventListener("mouseout", () => {
-          gsap.to(mapImageRef.current, {
-            opacity: 0,
-            duration: 0.5,
-          });
-        });
-      }
+      // if (mapImageRef !== null) {
+      //   cardRef.current.addEventListener("mouseover", () => {
+      //     gsap.to(mapImageRef.current, {
+      //       opacity: 1,
+      //       duration: 0.5,
+      //     });
+      //   });
+      //   cardRef.current.addEventListener("mouseout", () => {
+      //     gsap.to(mapImageRef.current, {
+      //       opacity: 0,
+      //       duration: 0.5,
+      //     });
+      //   });
+      // }
     }
   }, []);
   return (
@@ -53,10 +61,18 @@ const DestinationCard = ({ data }) => {
           <CardHeader>
             <CardTitle className="font-bold text-lg">{data.name}</CardTitle>
             <Badge variant="secondary">{data?.location?.location}</Badge>
+            <CardDescription className="text-xs ">
+              {data?.intro}
+            </CardDescription>
           </CardHeader>
+          <CardFooter className={'bg-white'}>
+            <Button className={'bg-black text-white hover:translate-x-1 transition-all duration-300 ease-in-out'}>
+              View <ArrowRight />{" "}
+            </Button>
+          </CardFooter>
         </Card>
       </Link>
-      <div>
+      {/* <div>
         {data.mapImage &&
           data.mapImage.asset._ref &&
           getImageURL(data.mapImage.asset) && (
@@ -69,7 +85,7 @@ const DestinationCard = ({ data }) => {
               />
             </div>
           )}
-      </div>
+      </div> */}
     </div>
   );
 };

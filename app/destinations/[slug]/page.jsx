@@ -53,7 +53,7 @@ const Page = async ({ params }) => {
           <p className="text-white/90 uppercase tracking-[0.4em] text-xs md:text-sm font-caveat drop-shadow-md">
             Discover Sri Lanka
           </p>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif text-white font-bold tracking-tight drop-shadow-2xl">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl  text-white font-bold tracking-tight drop-shadow-2xl">
             {destination.name}
           </h1>
           <div className="w-24 h-1 bg-white mx-auto mt-6 rounded-full opacity-80" />
@@ -67,10 +67,10 @@ const Page = async ({ params }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 border-b border-gray-50 text-center py-8 bg-gray-50/50">
             <div>
               <p className="text-[10px] uppercase text-gray-400 font-bold tracking-widest">
-                Region
+                Province
               </p>
               <p className="text-sm font-semibold text-gray-800 uppercase">
-                Central Province
+                {destination?.province}
               </p>
             </div>
             <div>
@@ -78,7 +78,7 @@ const Page = async ({ params }) => {
                 Best Time
               </p>
               <p className="text-sm font-semibold text-gray-800 uppercase">
-                Dec — Apr
+                {destination?.bestTimeToVisit}
               </p>
             </div>
             {/* Add more stats as needed */}
@@ -88,7 +88,7 @@ const Page = async ({ params }) => {
             {/* Cinematic Article Body */}
             <article
               className="prose prose-stone prose-lg max-w-none 
-              prose-headings:font-serif prose-headings:font-bold 
+              prose-headings: prose-headings:font-bold 
               prose-img:rounded-2xl prose-img:shadow-lg
               prose-p:leading-relaxed prose-p:text-gray-600"
             >
@@ -102,7 +102,7 @@ const Page = async ({ params }) => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
           <div className="space-y-6">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 border-l-4 border-black pl-6">
+            <h2 className="text-3xl  font-bold text-gray-900 border-l-4 border-black pl-6">
               Things to Do in {destination.name}
             </h2>
             <RecommandedActivities
@@ -112,7 +112,7 @@ const Page = async ({ params }) => {
           </div>
 
           <div className="space-y-6">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 border-l-4 border-black pl-6">
+            <h2 className="text-3xl  font-bold text-gray-900 border-l-4 border-black pl-6">
               Essential Products
             </h2>
             <RecommandedProducts
@@ -122,7 +122,7 @@ const Page = async ({ params }) => {
           </div>
 
           <div className="space-y-6">
-            <h2 className="text-3xl font-serif font-bold text-gray-900 border-l-4 border-black pl-6">
+            <h2 className="text-3xl  font-bold text-gray-900 border-l-4 border-black pl-6">
               Nearby Places
             </h2>
             <RecommandedPlaces

@@ -14,7 +14,7 @@ const TrendingProducts = async () => {
           superTitle={"Sri Lanks"}
         />
       </div>
-      <div className="w-full  flex flex-wrap  justify-center items-center gap-4 mt-10 ">
+      <div className="w-full  flex flex-wrap  justify-center items-start gap-4 mt-10 ">
         {data && data.length > 0 ? (
           data.map((item) => <TrendingProductCard key={item._id} data={item} />)
         ) : (

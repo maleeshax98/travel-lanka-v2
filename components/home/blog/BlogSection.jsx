@@ -67,7 +67,7 @@ const BlogSection = ({ posts }) => {
                   href={`/tips/${post.slug.current}`}
                   className="inline-flex items-center text-sm font-bold text-neutral-900 group-hover:text-orange-600 transition duration-300"
                 >
-                  Read Story
+                  Read More
                   <svg
                     className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"

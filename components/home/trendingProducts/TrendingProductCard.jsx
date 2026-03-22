@@ -13,8 +13,11 @@ import {
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
 import Link from "next/link";
+import { MapPin } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const TrendingProductCard = ({ data }) => {
+  console.log(data);
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0 ">
@@ -39,12 +42,24 @@ const TrendingProductCard = ({ data }) => {
               <CardTitle className={"text-lg font-semibold"}>
                 {data?.name}
               </CardTitle>
-              <CardDescription className="text-xs ">
-                {data?.description}
-              </CardDescription>
             </div>
             <CardDescription>
               <h1 className="text-black font-bold text-lg"> {data?.price}</h1>
+            </CardDescription>
+          </div>
+          <div>
+            <CardDescription className="text-xs ">
+              {data?.description}
+            </CardDescription>
+            <CardDescription className="flex items-center gap-2 mt-5">
+              {data?.address && <MapPin className="w-4 h-4 text-gray-500" />}
+              {data?.address}
+            </CardDescription>
+            <CardDescription className="flex items-center gap-2 mt-5">
+              {data?.contactNumbers && (
+                <Phone className="w-4 h-4 text-gray-500" />
+              )}
+              {data?.contactNumbers && data?.contactNumbers[0]}
             </CardDescription>
           </div>
         </CardHeader>

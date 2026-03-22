@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
+import Link from "next/link";
 
 const ActivitiesCard = ({ data }) => {
   return (
@@ -19,7 +20,7 @@ const ActivitiesCard = ({ data }) => {
       <Card className="relative mx-auto w-full max-w-sm pt-0">
         <div className="absolute inset-0 z-30 aspect-video " />
         <img
-          src={data.image !== null ? getImageURL(data?.image?.asset) : ''}
+          src={data.image !== null ? getImageURL(data?.image?.asset) : ""}
           alt="Event cover"
           className="relative z-20 aspect-video w-full object-cover"
         />
@@ -41,20 +42,19 @@ const ActivitiesCard = ({ data }) => {
             faster.
           </CardDescription>
         </CardHeader>
-        <CardFooter>
-          <div className=" w-full">
-            {/* <a href={data?.link}> */}
-            <Button className="w-full">
-              Visit <ArrowRight />
-            </Button>
-            {/* </a> */}
-            {/* <a href={data?.link}> */}
-            <br />
-            <Button className="w-full">
+        <CardFooter className="flex justify-between flex-wrap bg-white ">
+          {data?.link && (
+            <Link href={data?.link}>
+              <Button className="w-full cursor-pointer rounded-full p-5 hover:translate-x-2 transition-all duration-300">
+                Go to Activity <ArrowRight />
+              </Button>
+            </Link>
+          )}
+          <Link href={`/things-to-do/${data?.slug.current}`}>
+            <Button className="w-full cursor-pointer bg-gray-100 text-black rounded-full hover:translate-x-2 transition-all duration-300">
               Read More <ArrowRight />
             </Button>
-            {/* </a> */}
-          </div>
+          </Link>
         </CardFooter>
       </Card>
     </div>

@@ -15,13 +15,13 @@ export default function LandmarkModal({ landmark, onClose }) {
           exit={{ x: 50, opacity: 0 }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
         >
-          <button 
+          <button
             onClick={onClose}
             className="absolute top-3 right-3 p-1.5 bg-white/50 hover:bg-white rounded-full text-gray-800 transition shadow-sm z-10"
           >
             <X size={16} />
           </button>
-          
+
           <div className="relative w-full h-44 rounded-xl overflow-hidden mb-4 shadow-inner">
             <Image
               src={landmark.image_thumb}
@@ -43,12 +43,12 @@ export default function LandmarkModal({ landmark, onClose }) {
             {landmark.description}
           </p>
 
-          <button
+          {/* <button
             onClick={onClose}
             className="mt-auto w-full bg-orange-600 hover:bg-orange-700 text-white font-medium px-4 py-2.5 rounded-lg shadow-md shadow-orange-500/30 transition text-sm"
           >
             View Details
-          </button>
+          </button> */}
         </motion.div>
       )}
     </AnimatePresence>

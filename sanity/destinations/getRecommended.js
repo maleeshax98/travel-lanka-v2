@@ -23,7 +23,7 @@ const getRecommandedProducts = async (locationRef, productType) => {
   if (!locationRef || !productType) return [];
 
   const PRODUCTS_QUERY = `*[_type == "product" && defined(slug.current) && $locationRef in location[]._ref && productType->title == $productType
-  ] | order(publishedAt desc)[0...6]{_id, name, slug, publishedAt, mainImage, location[]-> { location}, mapImage, rating, productType-> {title}}`;
+  ] | order(publishedAt desc)[0...6]{_id, name, slug, publishedAt, mainImage, location[]-> { location}, mapImage, rating, price, link, description, address, contactNumbers, productType-> {title}}`;
   const rProducts = await client.fetch(
     PRODUCTS_QUERY,
     { locationRef, productType },
@@ -52,7 +52,7 @@ const getActivityTypes = async (locationRef) => {
 const getRecommendedActivites = async (locationRef, activityCategory) => {
   if (!locationRef || !activityCategory) return [];
 
-  const ACTIVITIES_QUERY = `*[_type=='activity' && defined(slug.current) && $locationRef in location[]._ref && activityCategory->name == $activityCategory ] | order(publishedAt desc)[0...6]{_id, name, slug, image, location[] -> {location}, activityCategory-> {_id, name, slug}}`;
+  const ACTIVITIES_QUERY = `*[_type=='activity' && defined(slug.current) && $locationRef in location[]._ref && activityCategory->name == $activityCategory ] | order(publishedAt desc)[0...6]{_id, name, slug, image, location[] -> {location}, link, activityCategory-> {_id, name, slug}}`;
 
   const rActivites = await client.fetch(
     ACTIVITIES_QUERY,
@@ -81,7 +81,7 @@ const getPlacesTypes = async (locationRef) => {
 
 const getRecommendedPlaces = async (locationRef, placeType) => {
   if (!locationRef || !placeType) return [];
-  const PLACES_QUERY = `*[_type=='places' && defined(slug.current) && $locationRef in location[]._ref && placeType->name == $placeType ] | order(publishedAt desc)[0...6]{_id, name, slug, mainImage,  location[]->{location}, placeType->{name}}`;
+  const PLACES_QUERY = `*[_type=='places' && defined(slug.current) && $locationRef in location[]._ref && placeType->name == $placeType ] | order(publishedAt desc)[0...6]{_id, name, slug, mainImage, description, address,  location[]->{location}, placeType->{name}}`;
   const rPlaces = await client.fetch(
     PLACES_QUERY,
     { locationRef, placeType },

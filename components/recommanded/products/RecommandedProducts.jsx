@@ -39,7 +39,7 @@ const RecommandedProducts = ({ locationRef, productTypes }) => {
         </Tabs>
       </div>
 
-      <div className="w-full  flex flex-wrap  justify-left items-center gap-4  p-5">
+      <div className="w-full  flex flex-wrap  justify-left items-start gap-4  p-5">
         {loading ? (
           [...Array(3)].map((_, i) => (
             <Card key={i} className="w-full max-w-xs">

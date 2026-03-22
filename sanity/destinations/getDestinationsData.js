@@ -1,7 +1,7 @@
 import { client } from "@/sanity/client";
 
 const POSTS_QUERY = `*[_type == "destination" && defined(slug.current)
-] | order(publishedAt desc)[0...6]{_id, name, slug, publishedAt, mainImage, location -> {location}, mapImage}`;
+] | order(publishedAt desc)[0...6]{_id, name, slug, publishedAt, mainImage, location -> {location}, mapImage, intro}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -12,7 +12,7 @@ const getDestinations = async () => {
 };
 
 const getDestination = async (slug) => {
-  const DESTINATION_QUERY = `*[_type == "destination" && defined(slug.current) && slug.current=='${slug}']{_id, name, slug, publishedAt, mainImage, location, mapImage, body}`;
+  const DESTINATION_QUERY = `*[_type == "destination" && defined(slug.current) && slug.current=='${slug}']{_id, name, slug, publishedAt, mainImage, location, mapImage, body, province, bestTimeToVisit}`;
 
   const destination = await client.fetch(DESTINATION_QUERY, {}, options);
   return destination;
