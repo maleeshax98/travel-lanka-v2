@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import getImageURL from "@/libs/sanity";
+import Link from "next/link";
 
 const TrendingProductCard = ({ data }) => {
   return (
@@ -21,7 +22,7 @@ const TrendingProductCard = ({ data }) => {
         <img
           src={getImageURL(data.mainImage.asset)}
           alt="Event cover"
-          className="relative z-20 aspect-video w-full object-cover"
+          className="relative z-20 aspect-video w-full object-cover hover:scale-105 transition-all duration-300"
         />
         <div className="flex justify-between p-1">
           <CardAction>
@@ -44,17 +45,17 @@ const TrendingProductCard = ({ data }) => {
             <h1>Price {data?.price}</h1>
           </CardDescription>
         </CardHeader>
-        <CardFooter>
-          <a href={data?.link}>
-            <Button className="w-full">
-              Visit <ArrowRight />
+        <CardFooter className='flex justify-between flex-wrap'>
+          <Link href={data?.link}>
+            <Button className="w-full cursor-pointer">
+              View Product <ArrowRight />
             </Button>
-          </a>
-          <a href={data?.link}>
-            <Button className="w-full">
+          </Link>
+          <Link href={`/products/${data?.slug.current}`}>
+            <Button className="w-full cursor-pointer bg-gray-500">
               Read More <ArrowRight />
             </Button>
-          </a>
+          </Link>
         </CardFooter>
       </Card>
     </div>
