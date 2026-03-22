@@ -28,7 +28,7 @@ const TrendingProductCard = ({ data }) => {
         />
         <div className="flex justify-between p-1">
           <CardAction>
-            <Badge variant="secondary">{data?.productType?.name}</Badge>
+            <Badge variant="secondary">{data?.productCategory?.name}</Badge>
           </CardAction>
           <CardAction>
             <Badge variant="secondary">{data?.rating}</Badge>
@@ -66,13 +66,15 @@ const TrendingProductCard = ({ data }) => {
           {data?.link && (
             <Link href={data?.link}>
               <Button className="w-full cursor-pointer rounded-full p-5 hover:translate-x-2 transition-all duration-300">
-                View Product <ArrowRight />
+                Official Site <ArrowRight />
               </Button>
             </Link>
           )}
-          <Link href={`/products/${data?.slug.current}`}>
+          <Link
+            href={`/products/${data?.productCategory?.slug?.current}/${data?.slug.current}`}
+          >
             <Button className="w-full cursor-pointer bg-gray-100 text-black rounded-full hover:translate-x-2 transition-all duration-300">
-              Read More <ArrowRight />
+              View Details <ArrowRight />
             </Button>
           </Link>
         </CardFooter>

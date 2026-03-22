@@ -27,7 +27,7 @@ export default function Navigation({ data }) {
             Home
           </li>
         </Link>
-        <Link href={`/sri-lanka`}>
+        <Link href={`/#`}>
           <li className="relative flex items-center cursor-pointer hover:text-orange-600 transition whitespace-nowrap py-2">
             The Island
           </li>
@@ -81,7 +81,6 @@ export default function Navigation({ data }) {
           </li>
         ))}
       </ul>
-      
 
       {/* Mobile Navigation overlay */}
       {isMobileMenuOpen && (

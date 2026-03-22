@@ -65,7 +65,7 @@ const PlacesCard = ({ data, mainCategorySlug }) => {
         <CardFooter className="flex justify-between flex-wrap bg-white ">
           <Link href={`/places/${mainCategorySlug}/${data?.slug.current}`}>
             <Button className="w-full cursor-pointer bg-black text-white rounded-full hover:translate-x-2 transition-all duration-300 p-5">
-              Read More <ArrowRight />
+              View Details <ArrowRight />
             </Button>
           </Link>
         </CardFooter>

@@ -42,4 +42,11 @@ const getNavbarData = async () => {
   return [des, ...editedNavBarData, ac];
 };
 
-export { getNavbarData };
+const productNavbarData = async () => {
+  const QUERY = `*[_type == "productCategoryType" && defined(slug.current)]{_id, slug, name}`;
+
+  const data = await client.fetch(QUERY, {}, options);
+  return data;
+};
+
+export { getNavbarData, productNavbarData };

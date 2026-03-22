@@ -3,7 +3,7 @@
 import { client } from "@/sanity/client";
 
 const POSTS_QUERY = `*[_type == "productType" && defined(slug.current) && isTrending == true
-][0...6]{_id, name, slug, mainImage, introduction, address, price, contactNumbers, isTrending, link, cities[]->{name, slug}, rating}`;
+][0...6]{_id, name, slug, mainImage, introduction, address, price, contactNumbers, isTrending, link, cities[]->{name, slug, province->{_id, name, slug}}, productCategory->{_id, name, slug}, rating}`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -13,3 +13,7 @@ const getTrendingProducts = async () => {
 };
 
 export { getTrendingProducts };
+
+
+
+
