@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function About() {
@@ -39,8 +40,8 @@ function About() {
     );
 
     tl.to(".introduction", {
-      // opacity: 0,
-      x: "-100vw",
+      opacity: 0,
+      // x: "-100vw",
       duration: 1,
       ease: "power1.inOut",
     });
@@ -76,7 +77,7 @@ function About() {
   return (
     <div className="main-container p-10 h-screen flex flex-col justify-center items-center ">
       <div>
-        <h1 className="introduction text-center  text-5xl font-bold max-w-6xl leading-tight">
+        <h1 className="introduction text-center text-2xl md:text-5xl font-bold max-w-6xl leading-tight">
           If you read the whole book but skipped the chapter on Sri Lanka, dear
           reader, you just missed the climax. On an atlas, Sri Lanka might
           appear as a small mango-shaped dot in South Asia, almost unnoticeable.
@@ -85,9 +86,9 @@ function About() {
         </h1>
       </div>
 
-      <div className="opacity-0 absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen ">
-        <div className="map-container">
-          <div className="relative max-w-[350px]  ">
+      <div className="opacity-0 absolute inset-0 z-10 w-full max-w-7xl mx-auto px-6 flex flex-wrap md:flex-nowrap justify-center items-center gap-10 second-section h-screen  ">
+        <div className="map-container ">
+          <div className="relative max-w-[350px] w-[200px] md:w-auto  mt-[80px] md:mt-[0px]">
             <Image
               src="/Assets/Images/intro-sri-lanka.png"
               alt="Sri Lanka Map"
@@ -114,9 +115,11 @@ function About() {
             just a destination; it offers a profound connection to nature and a
             legacy of island hospitality.
           </p>
-          <button className="mt-8 px-10 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-orange-600 transition-all active:scale-95 shadow-lg shadow-black/5">
-            Book Your Journey
-          </button>
+          <Link href={"/destinations"}>
+            <button className="mt-8 px-10 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-orange-600 transition-all active:scale-95 shadow-lg shadow-black/5">
+              Explore Destinations
+            </button>
+          </Link>
         </div>
       </div>
     </div>
