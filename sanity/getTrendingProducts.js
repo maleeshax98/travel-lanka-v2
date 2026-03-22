@@ -3,7 +3,7 @@
 import { client } from "@/sanity/client";
 
 const POSTS_QUERY = `*[_type == "product" && defined(slug.current) && isTrending == true
-][0...6]{_id, name, slug, mainImage, location[]->{_id, location}, price, rating, link, productType->{
+][0...6]{_id, name, slug, mainImage, location[]->{_id, location}, price, rating, link, description,productType->{
 title}}`;
 
 const options = { next: { revalidate: 30 } };

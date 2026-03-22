@@ -17,7 +17,7 @@ import Link from "next/link";
 const TrendingProductCard = ({ data }) => {
   return (
     <div>
-      <Card className="relative mx-auto w-full max-w-sm pt-0">
+      <Card className="relative mx-auto w-full max-w-sm pt-0 ">
         <div className="absolute inset-0 z-30 aspect-video " />
         <img
           src={getImageURL(data.mainImage.asset)}
@@ -34,25 +34,28 @@ const TrendingProductCard = ({ data }) => {
           </CardAction>
         </div>
         <CardHeader>
-          <CardTitle className={"text-lg font-semibold"}>
-            {data?.name}
-          </CardTitle>
-          <CardDescription>
-            A practical talk on component APIs, accessibility, and shipping
-            faster.
-          </CardDescription>
-          <CardDescription>
-            <h1>Price {data?.price}</h1>
-          </CardDescription>
+          <div className="flex justify-between flex-wrap ">
+            <div className=" max-w-[70%]">
+              <CardTitle className={"text-lg font-semibold"}>
+                {data?.name}
+              </CardTitle>
+              <CardDescription className="text-xs ">
+                {data?.description}
+              </CardDescription>
+            </div>
+            <CardDescription>
+              <h1 className="text-black font-bold text-lg"> {data?.price}</h1>
+            </CardDescription>
+          </div>
         </CardHeader>
-        <CardFooter className='flex justify-between flex-wrap'>
+        <CardFooter className="flex justify-between flex-wrap bg-white ">
           <Link href={data?.link}>
-            <Button className="w-full cursor-pointer">
+            <Button className="w-full cursor-pointer rounded-full p-5 hover:translate-x-2 transition-all duration-300">
               View Product <ArrowRight />
             </Button>
           </Link>
           <Link href={`/products/${data?.slug.current}`}>
-            <Button className="w-full cursor-pointer bg-gray-500">
+            <Button className="w-full cursor-pointer bg-gray-100 text-black rounded-full hover:translate-x-2 transition-all duration-300">
               Read More <ArrowRight />
             </Button>
           </Link>
