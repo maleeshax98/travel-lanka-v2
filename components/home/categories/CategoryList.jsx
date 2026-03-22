@@ -61,7 +61,7 @@ const CategoryList = ({ data }) => {
           {data.map((d, i) => (
             <div
               key={i}
-              className="cato-card shrink-0 relative w-[50vw] h-[500px] bg-yellow-200 rounded-2xl flex items-center justify-center overflow-hidden"
+              className="cato-card shrink-0 relative w-[100vw] md:w-[50vw] h-[500px]  rounded-2xl flex items-center justify-center overflow-hidden"
             >
               <Image
                 src={getImageURL(d.image.asset)}
@@ -76,7 +76,7 @@ const CategoryList = ({ data }) => {
               <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex items-end justify-between">
                 <div className="flex flex-col text-white">
                   <h3 className="text-2xl font-bold mb-1">{d.title}</h3>
-                  <div className="flex items-center text-sm text-gray-200">
+                  <div className="flex items-center text-xs sm:text-sm text-gray-200">
                     {/* <MapPin size={14} className="mr-1" /> */}
                     {d.description}
                   </div>

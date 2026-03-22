@@ -25,7 +25,7 @@ const Header = ({ title, subtitle, superTitle }) => {
         {subtitle}
       </h4>
 
-      <h1 className="flex flex-col text-5xl font-bold text-center">
+      <h1 className="flex flex-col text-4xl md:text-5xl font-bold text-center">
         <span>{title}</span>
         <span className="text-orange-600">{superTitle}</span>
       </h1>
