@@ -18,7 +18,7 @@ const BlogSection = ({ posts }) => {
           </div>
           <Link
             href="/tips"
-            className="hidden md:inline-flex items-center text-sm font-bold uppercase tracking-wider text-blue-600 hover:text-blue-700 transition"
+            className="hidden md:inline-flex items-center text-sm font-bold uppercase tracking-wider text-orange-600 hover:text-orange-700 transition"
           >
             View All Posts
             <svg
@@ -54,7 +54,7 @@ const BlogSection = ({ posts }) => {
               </div>
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-4 font-serif text-neutral-900 group-hover:text-blue-600 transition duration-300 line-clamp-2 leading-snug">
+                <h3 className="text-2xl font-bold mb-4 font-serif text-neutral-900 group-hover:text-orange-600 transition duration-300 line-clamp-2 leading-snug">
                   {post.title}
                 </h3>
 
@@ -65,7 +65,7 @@ const BlogSection = ({ posts }) => {
 
                 <Link
                   href={`/tips/${post.slug.current}`}
-                  className="inline-flex items-center text-sm font-bold text-neutral-900 group-hover:text-blue-600 transition duration-300"
+                  className="inline-flex items-center text-sm font-bold text-neutral-900 group-hover:text-orange-600 transition duration-300"
                 >
                   Read Story
                   <svg
@@ -90,7 +90,7 @@ const BlogSection = ({ posts }) => {
         <div className="mt-12 text-center md:hidden">
           <Link
             href="/tips"
-            className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-blue-600 hover:text-blue-700 transition"
+            className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-orange-600 hover:text-orange-700 transition"
           >
             View All Posts
             <svg

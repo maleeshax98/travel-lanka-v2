@@ -12,22 +12,18 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import ButtonMain from "@/components/ui/ButtonMain";
 import { ArrowRight } from "lucide-react";
+import Header from "@/components/Header";
 
 const ActivitesList = ({ data }) => {
   const plugin = useRef(Autoplay({ delay: 1500, stopOnInteraction: true }));
   return (
     <section className="mt-[120px] md:mt-[10px]">
       <div>
-        <div className=" header">
-          <h4 className="font-caveat text-4xl text-center text-orange-500">
-            Unforgettable Memories
-          </h4>
-
-          <h1 className="flex flex-col text-5xl font-bold text-center">
-            <span>Popular Activities</span>
-            <span className="text-orange-600">Around Sri Lanka</span>
-          </h1>
-        </div>
+        <Header
+          subtitle={"Unforgettable Memories"}
+          title={"Popular Activities"}
+          superTitle={"Around Sri Lanka"}
+        />
       </div>
       <div className="flex justify-center items-center">
         <Carousel
