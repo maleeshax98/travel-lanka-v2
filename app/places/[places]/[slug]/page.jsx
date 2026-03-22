@@ -1,6 +1,7 @@
 import BlogContent from "@/components/BlogContent";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/Navbar";
+import RecommandedItems from "@/components/recommanded/RecommandedItems";
 import getImageURL from "@/libs/sanity";
 import { getPlaceData } from "@/sanity/places/getPlacesData";
 import React from "react";
@@ -48,14 +49,16 @@ const Page = async ({ params }) => {
           <div className="flex flex-wrap justify-between items-center mb-12 pb-8 border-b border-gray-100">
             <div className="flex flex-col">
               <span className="text-gray-400 text-xs uppercase font-semibold">
-                Location
+                Province
               </span>
-              <span className="text-gray-800 font-medium">Sri Lanka</span>
+              <span className="text-gray-800 font-medium">
+                {place[0].city?.province?.name}
+              </span>
             </div>
             <div className="flex space-x-4">
               {/* Place for social share or rating badges */}
               <div className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-sm font-semibold">
-                {place[0].placeType?.name}
+                {place[0].category?.name}
               </div>
             </div>
           </div>
@@ -66,6 +69,8 @@ const Page = async ({ params }) => {
           </div>
         </div>
       </article>
+
+      <RecommandedItems locationRef={place[0].city.province._id} />
 
       <Footer />
     </main>

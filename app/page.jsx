@@ -18,6 +18,7 @@ const page = async () => {
     <main>
       {/* <Navigation /> */}
       <Navbar />
+      ≈
       <HeroSection />
       {/* Destinations, beaches, water falls  */}
       <Categories />

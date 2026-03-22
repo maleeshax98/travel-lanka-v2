@@ -5,13 +5,14 @@ import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/Navbar";
 import getImageURL from "@/libs/sanity";
 import { getPlaceData } from "@/sanity/places/getPlacesData";
-import { getActivities } from "@/sanity/things-to-do/getThings";
+import { getActivities, getActivity } from "@/sanity/things-to-do/getThings";
 import React from "react";
 
 const Page = async ({ params }) => {
   const { slug } = await params;
-  const activity = await getActivities(slug);
-  if (!activity)
+  const activities = await getActivities(slug);
+  const activity = await getActivity(slug);
+  if (!activities)
     return (
       <div className="min-h-screen flex items-center justify-center">
         Loading...
@@ -27,7 +28,9 @@ const Page = async ({ params }) => {
         <div className="absolute inset-0 z-0">
           <img
             src={
-              activity.image !== null ? getImageURL(activity.image.asset) : ""
+              activity.mainImage !== null
+                ? getImageURL(activity.mainImage.asset)
+                : ""
             }
             alt={activity.name}
             className="w-full h-full object-cover scale-105 animate-subtle-zoom"
@@ -68,9 +71,13 @@ const Page = async ({ params }) => {
           <h2 className="text-3xl font-bold mb-6">
             Activities in {activity.name}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {activity.activities.map((activity) => (
-              <ActivitiesCard key={activity._id} data={activity} />
+          <div className="flex flex-wrap gap-5 items-start">
+            {activities.map((a) => (
+              <ActivitiesCard
+                key={a._id}
+                data={a}
+                baseUrl={activity.slug.current}
+              />
             ))}
           </div>
         </div>

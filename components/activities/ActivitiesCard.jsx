@@ -79,7 +79,9 @@ const ActivitiesCard = ({ data }) => {
               </Button>
             </Link>
           )}
-          <Link href={`/things-to-do/${data?.slug.current}`}>
+          <Link
+            href={`/things-to-do/${data?.activityCategory?.slug.current}/${data?.slug.current}`}
+          >
             <Button className="w-full cursor-pointer bg-gray-100 text-black rounded-full hover:translate-x-2 transition-all duration-300">
               Read More <ArrowRight />
             </Button>

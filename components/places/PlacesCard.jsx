@@ -16,7 +16,7 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { Phone } from "lucide-react";
 
-const PlacesCard = ({ data }) => {
+const PlacesCard = ({ data, mainCategorySlug }) => {
   return (
     <div>
       <Card className="relative mx-auto w-full max-w-sm pt-0">
@@ -63,7 +63,7 @@ const PlacesCard = ({ data }) => {
           </div>
         </CardHeader>
         <CardFooter className="flex justify-between flex-wrap bg-white ">
-          <Link href={`/places/${data?.slug.current}`}>
+          <Link href={`/places/${mainCategorySlug}/${data?.slug.current}`}>
             <Button className="w-full cursor-pointer bg-black text-white rounded-full hover:translate-x-2 transition-all duration-300 p-5">
               Read More <ArrowRight />
             </Button>

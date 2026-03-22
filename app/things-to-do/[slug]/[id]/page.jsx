@@ -6,15 +6,21 @@ import { getDestination } from "@/sanity/destinations/getDestinationsData";
 
 import getImageURL from "@/libs/sanity";
 import RecommandedItems from "@/components/recommanded/RecommandedItems";
+import { getSingleActivity } from "@/sanity/things-to-do/getThings";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { MapPin } from "lucide-react";
+import { Coins } from "lucide-react";
+import { Phone } from "lucide-react";
 
 const Page = async ({ params }) => {
-  const { slug } = await params;
-  const destinationData = await getDestination(slug);
-  const destination = destinationData[0];
+  const { slug, id } = await params;
+  const activityData = await getSingleActivity(id);
 
-  if (!destination) return null;
+  if (!activityData) return null;
 
-  const locationRef = destination.city.province._id;
+  const locationRef = activityData.cities[0].province._id;
   // Parallel data fetching for better performance
   // const [productTypes, activityTypes, placeTypes] = await Promise.all([
   //   getProductType(locationRef),
@@ -31,8 +37,8 @@ const Page = async ({ params }) => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src={getImageURL(destination.mainImage.asset)}
-            alt={destination.name}
+            src={getImageURL(activityData.mainImage.asset)}
+            alt={activityData.name}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#fcfcfc]" />
@@ -44,7 +50,7 @@ const Page = async ({ params }) => {
             Discover Sri Lanka
           </p>
           <h1 className="text-6xl md:text-8xl lg:text-9xl  text-white font-bold tracking-tight drop-shadow-2xl">
-            {destination.name}
+            {activityData.name}
           </h1>
           <div className="w-24 h-1 bg-white mx-auto mt-6 rounded-full opacity-80" />
         </div>
@@ -60,21 +66,52 @@ const Page = async ({ params }) => {
                 Province
               </p>
               <p className="text-sm font-semibold text-gray-800 uppercase">
-                {destination?.city?.province?.name}
+                {activityData?.cities[0]?.province?.name}
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase text-gray-400 font-bold tracking-widest">
+              {/* <p className="text-[10px] uppercase text-gray-400 font-bold tracking-widest">
                 Best Time
-              </p>
-              <p className="text-sm font-semibold text-gray-800 uppercase">
+              </p> */}
+              {/* <p className="text-sm font-semibold text-gray-800 uppercase">
                 {destination?.bestTimeToVisit}
-              </p>
+              </p> */}
             </div>
             {/* Add more stats as needed */}
           </div>
 
           <div className="p-8 md:p-16 lg:p-20">
+            <div className="mb-20 flex flex-wrap justify-between items-start gap-3">
+              <div className="flex flex-col gap-5">
+                <p className="text-lg font-semibold flex items-center gap-2">
+                  {" "}
+                  <MapPin /> {activityData.address}
+                </p>
+                <p className="text-lg font-semibold flex items-center gap-2">
+                  {" "}
+                  <Coins /> Price: {activityData.price}
+                </p>
+                {activityData?.link && (
+                  <Link href={activityData?.link}>
+                    <Button className="w-full cursor-pointer max-w-lg rounded-full p-5 hover:translate-x-2 transition-all duration-300">
+                      Go to Activity <ArrowRight />
+                    </Button>
+                  </Link>
+                )}
+              </div>
+              <div>
+                {activityData.contactNumbers.map((c, i) => {
+                  return (
+                    <span
+                      key={i}
+                      className="text-lg font-semibold flex items-center gap-2"
+                    >
+                      <Phone /> {c}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
             {/* Cinematic Article Body */}
             <article
               className="prose prose-stone prose-lg max-w-none 
@@ -82,7 +119,7 @@ const Page = async ({ params }) => {
               prose-img:rounded-2xl prose-img:shadow-lg
               prose-p:leading-relaxed prose-p:text-gray-600"
             >
-              <BlogContent value={destination.body} />
+              <BlogContent value={activityData.body} />
             </article>
           </div>
         </div>

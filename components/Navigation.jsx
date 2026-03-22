@@ -81,6 +81,7 @@ export default function Navigation({ data }) {
           </li>
         ))}
       </ul>
+      
 
       {/* Mobile Navigation overlay */}
       {isMobileMenuOpen && (

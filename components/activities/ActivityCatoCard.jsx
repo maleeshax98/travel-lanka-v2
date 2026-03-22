@@ -21,7 +21,7 @@ const ActivityCatoCard = ({ data }) => {
         <Card className="relative mx-auto w-full max-w-sm pt-0 hover:scale-110  transition-all duration-300 ease-in-out">
           <div className="absolute inset-0 z-30 aspect-video " />
           <img
-            src={data.image !== null ? getImageURL(data?.image?.asset) : ""}
+            src={data.image !== null ? getImageURL(data?.mainImage?.asset) : ""}
             alt="Event cover"
             className="relative z-20 aspect-video w-full object-cover"
           />
@@ -35,10 +35,18 @@ const ActivityCatoCard = ({ data }) => {
             <CardTitle className={"text-lg font-semibold"}>
               {data?.name}
             </CardTitle>
-            <CardDescription>
-              A practical talk on component APIs, accessibility, and shipping
-              faster.
-            </CardDescription>
+            <CardDescription>{data.introduction}</CardDescription>
+            <CardFooter>
+              {/* <Link href={`/things-to-do/${data.slug.current}`}> */}
+                <Button
+                  className={
+                    "bg-black text-white hover:translate-x-1 transition-all duration-300 ease-in-out p-5 rounded-full cursor-pointer"
+                  }
+                >
+                  View <ArrowRight />{" "}
+                </Button>
+              {/* </Link> */}
+            </CardFooter>
           </CardHeader>
         </Card>
       </Link>
