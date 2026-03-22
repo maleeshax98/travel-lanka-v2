@@ -1,10 +1,11 @@
 import React from "react";
 import CategoryList from "./CategoryList";
-import { getTrendingDestinations } from "@/sanity/getTrendingDes";
+import { getFeatured } from "@/sanity/getFeatured";
 import Header from "../../Header";
 
 const Categories = async () => {
-  const data = await getTrendingDestinations();
+  const data = await getFeatured();
+  console.log(data);
   if (data.length) {
     return (
       <div>

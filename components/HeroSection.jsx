@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
 import ButtonMain from "./ui/ButtonMain";
+import Link from "next/link";
 
 const HeroSection = () => {
   useGSAP(() => {
@@ -58,25 +59,27 @@ const HeroSection = () => {
             </p>
             {/* <button className="primary-button mt-5 z-[500]">Explore Now</button> */}
             <div className="mt-10">
-              <ButtonMain
-                text={"Explore Now"}
-                icon={
-                  <svg
-                    className="transform transition-transform duration-300 group-hover:translate-x-1"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                }
-                styles={"bg-orange-600 hover:bg-orange-700"}
-              />
+              <Link href={"/sri-lanka"}>
+                <ButtonMain
+                  text={"Explore Now"}
+                  icon={
+                    <svg
+                      className="transform transition-transform duration-300 group-hover:translate-x-1"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  }
+                  styles={"bg-orange-600 hover:bg-orange-700"}
+                />
+              </Link>
             </div>
           </div>
 

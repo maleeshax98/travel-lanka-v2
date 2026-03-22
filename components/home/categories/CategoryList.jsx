@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useRef } from "react";
 
 // Register the plugin
@@ -63,7 +64,7 @@ const CategoryList = ({ data }) => {
               className="cato-card shrink-0 relative w-[50vw] h-[500px] bg-yellow-200 rounded-2xl flex items-center justify-center overflow-hidden"
             >
               <Image
-                src={getImageURL(d.mainImage.asset)}
+                src={getImageURL(d.image.asset)}
                 alt={"title"}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110 "
@@ -74,17 +75,18 @@ const CategoryList = ({ data }) => {
               {/* Content */}
               <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 flex items-end justify-between">
                 <div className="flex flex-col text-white">
-                  <h3 className="text-2xl font-bold mb-1">{d.name}</h3>
+                  <h3 className="text-2xl font-bold mb-1">{d.title}</h3>
                   <div className="flex items-center text-sm text-gray-200">
-                    <MapPin size={14} className="mr-1" />
-                    {d.location.location}
+                    {/* <MapPin size={14} className="mr-1" /> */}
+                    {d.description}
                   </div>
                 </div>
-
                 {/* Explore Button / Arrow Icon */}
-                <button className="bg-transparent border-2 border-white/80 hover:bg-white hover:text-black hover:border-white text-white rounded-full p-2 transition-all duration-300">
-                  <ArrowRight size={20} />
-                </button>
+                <Link href={`/${d.link}`}>
+                  <button className="bg-transparent cursor-pointer border-2 border-white/80 hover:bg-white hover:text-black hover:border-white text-white rounded-full p-2 transition-all duration-300">
+                    <ArrowRight size={20} />
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
