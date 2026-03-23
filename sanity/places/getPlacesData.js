@@ -27,7 +27,7 @@ const getPlaces = async (slug) => {
 };
 
 const getPlacesData = async (ref) => {
-  const QUERY = `*[_type == "placesType" && category._ref == $ref]{_id, name, slug, mainImage,  city->{name}, introduction,category->{name}}`;
+  const QUERY = `*[_type == "placesType" && category._ref == $ref]{_id, name, slug, mainImage,  city->{name, slug, _id}, introduction,category->{name, slug, _id}}`;
 
   const data = await client.fetch(QUERY, { ref }, options);
 

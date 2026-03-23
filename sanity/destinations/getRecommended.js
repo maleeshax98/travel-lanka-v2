@@ -19,7 +19,7 @@ const getRecommandedProducts = async (locationRef, productType) => {
   if (!locationRef || !productType) return [];
 
   const PRODUCTS_QUERY = `*[_type == "productType" && defined(slug.current) && $locationRef in cities[]->province._ref && productCategory->name == $productType
-  ][0...6]{_id, name, slug, publishedAt, mainImage, cities[]-> { name }, mapImage, rating, price, link, introduction, address, contactNumbers, productCategory-> {name}}`;
+  ][0...6]{_id, name, slug, publishedAt, mainImage, cities[]-> { name, slug, _id }, mapImage, rating, price, link, introduction, address, contactNumbers, productCategory-> {name, slug, _id}}`;
 
   // const PRODUCTS_QUERY = `*[_type == "productType" && defined(slug.current) && $locationRef in cities[]._ref && productCategory->name == $productType
   // ][0...6]{_id, name, slug, publishedAt, mainImage, cities[]-> { name }, mapImage, rating, price, link, introduction, address, contactNumbers, productCategory-> {name}}`;

@@ -86,6 +86,21 @@ export default function Navigation({ data }) {
       {isMobileMenuOpen && (
         <div className="absolute top-0 left-0 w-full h-screen bg-white/95 backdrop-blur-md flex flex-col items-start pt-24 pb-8 px-8 lg:hidden z-40 overflow-y-auto">
           <ul className="flex flex-col space-y-2 w-full text-lg font-medium text-gray-800">
+            <Link href={`/`}>
+              <li className="relative flex items-center cursor-pointer hover:text-orange-600 transition whitespace-nowrap py-2">
+                Home
+              </li>
+            </Link>
+            <Link href={`/#`}>
+              <li className="relative flex items-center cursor-pointer hover:text-orange-600 transition whitespace-nowrap py-2">
+                The Island
+              </li>
+            </Link>
+            <Link href={`/tips`}>
+              <li className="relative flex items-center cursor-pointer hover:text-orange-600 transition whitespace-nowrap py-2">
+                Travel Tips
+              </li>
+            </Link>
             {data.map((item, idx) => (
               <li
                 key={idx}
@@ -97,7 +112,11 @@ export default function Navigation({ data }) {
                     setActiveDropdown(activeDropdown === idx ? null : idx)
                   }
                 >
-                  {item.name}
+                  <Link href={`/${item.slug.current}`}>
+                    <li className="px-4 py-2 hover:bg-orange-50 rounded-lg hover:text-orange-600 text-gray-700 transition-colors text-sm w-full font-medium">
+                      {item.name}
+                    </li>
+                  </Link>
                   {item.subItems.length > 0 && (
                     <ChevronDown
                       size={20}
