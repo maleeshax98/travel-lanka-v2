@@ -11,4 +11,25 @@ const getTrendingActivities = async () => {
   return activities;
 };
 
-export { getTrendingActivities };
+const getTrendingAcivitiesHomePage = async () => {
+  const QUERY = `*[_type == "activityType" && defined(slug.current)
+][0...6]{name,
+    _id,
+    slug,
+    mainImage,
+    publishedAt,
+    introduction,
+    body,
+    activityCategory->{name, slug},
+    cities[]->{name, province->{name}},
+    address,
+    price,
+    contactNumbers,
+    link,}`;
+
+  const activities = await client.fetch(QUERY, {}, options);
+
+  return activities;
+};
+
+export { getTrendingActivities, getTrendingAcivitiesHomePage };

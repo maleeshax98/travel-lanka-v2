@@ -49,7 +49,7 @@ const ProductNavigation = ({ data }) => {
   };
 
   return (
-    <div className="group relative max-w-7xl mx-auto px-4">
+    <div className="group fixed bottom-0 z-50  w-full  mx-auto px-4  bg-opacity-50 bg-white/50 backdrop-blur-sm ">
       {/* Left Arrow */}
       <button
         onClick={() => scroll("left")}
@@ -63,7 +63,7 @@ const ProductNavigation = ({ data }) => {
       {/* Scroll Container */}
       <div
         ref={containerRef}
-        className="flex items-center space-x-4 overflow-x-auto no-scrollbar py-4 scroll-smooth"
+        className="flex  items-center space-x-4 overflow-x-auto no-scrollbar py-1 scroll-smooth"
       >
         {data.map((item) => (
           <Link

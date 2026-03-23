@@ -41,7 +41,7 @@ const Footer = () => {
           </button>
         </div>
 
-        <div>
+        {/* <div>
           <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-6">
             Explore
           </h4>
@@ -56,7 +56,7 @@ const Footer = () => {
               Private Tours
             </li>
           </ul>
-        </div>
+        </div> */}
 
         <div>
           <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-6">

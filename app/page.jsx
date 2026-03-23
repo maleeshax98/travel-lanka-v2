@@ -11,6 +11,7 @@ import Navbar from "@/components/Navbar";
 import Activities from "@/components/home/activities/Activities";
 import { getRecentBlogPosts } from "@/sanity/blog/getPosts";
 import BlogSection from "@/components/home/blog/BlogSection";
+import TrendingActivities from "@/components/home/trendingActivities/TrendingActivities";
 
 const page = async () => {
   const posts = await getRecentBlogPosts(3);
@@ -18,7 +19,7 @@ const page = async () => {
     <main>
       {/* <Navigation /> */}
       <Navbar />
-      
+
       <HeroSection />
       {/* Destinations, beaches, water falls  */}
       <Categories />
@@ -28,6 +29,9 @@ const page = async () => {
 
       <About />
       <Activities />
+
+      <TrendingActivities />
+
       <DestinationsGallery />
 
       {/* blog posts */}
