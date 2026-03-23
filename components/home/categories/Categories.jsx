@@ -10,9 +10,9 @@ const Categories = async () => {
       <div>
         <div className="">
           <Header
-            subtitle={"Explore Sri Lanka"}
-            title={"Explore The Beauty"}
-            superTitle={"Around Sri Lanka"}
+            subtitle={"Discover Sri Lanka"}
+            title={"Unforgettable Experiences"}
+            superTitle={"From Mountains to Oceans"}
           />
         </div>
 

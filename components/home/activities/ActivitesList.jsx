@@ -21,9 +21,9 @@ const ActivitesList = ({ data }) => {
     <section className="mt-[120px] md:mt-[10px]">
       <div>
         <Header
-          subtitle={"Unforgettable Memories"}
-          title={"Popular Activities"}
-          superTitle={"Around Sri Lanka"}
+          subtitle={"Thrilling Adventures"}
+          title={"Experience the Best"}
+          superTitle={"Activities Sri Lanka Has to Offer"}
         />
       </div>
       <div className="flex justify-center items-center">

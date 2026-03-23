@@ -9,9 +9,9 @@ const TrendingProducts = async () => {
     <section className="">
       <div>
         <Header
-          subtitle={"Joyful Activities"}
-          title={"Trending Things in"}
-          superTitle={"Sri Lanks"}
+          subtitle={"Top Trending"}
+          title={"Discover What’s Popular"}
+          superTitle={"Experiences Everyone’s Booking"}
         />
       </div>
       <div className="w-full  flex flex-wrap  justify-center items-start gap-4 mt-10 ">

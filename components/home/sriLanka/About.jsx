@@ -78,11 +78,11 @@ function About() {
     <div className="main-container p-10 h-screen flex flex-col justify-center items-center ">
       <div>
         <h1 className="introduction text-center text-2xl md:text-5xl font-bold max-w-6xl leading-tight">
-          If you read the whole book but skipped the chapter on Sri Lanka, dear
-          reader, you just missed the climax. On an atlas, Sri Lanka might
-          appear as a small mango-shaped dot in South Asia, almost unnoticeable.
-          However, its biodiversity astonishes the world. Enriched by centuries
-          of history, the resulting cultural diversity is truly remarkable.
+          Tucked away in the Indian Ocean, Sri Lanka may look small on the map —
+          but its story is anything but. This island is a world of its own,
+          where lush landscapes, diverse wildlife, and centuries of culture come
+          together in perfect harmony. It’s not just a destination — it’s an
+          experience you don’t forget.
         </h1>
       </div>
 
@@ -101,19 +101,20 @@ function About() {
         </div>
 
         <div className="second-text-container flex flex-col items-center lg:items-start text-center lg:text-left ">
-          <span
-            className={`font-caveat text-2xl md:text-3xl text-orange-600 mb-2`}
-          >
-            A Journey Through Time
+          <span className="font-caveat text-2xl md:text-3xl text-orange-600 mb-2">
+            Timeless Island Experiences
           </span>
+
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-            Discover the Heart <br className="hidden md:block" /> of Sri Lanka
+            Discover the Soul <br className="hidden md:block" /> of Sri Lanka
           </h2>
+
           <div className="w-16 h-1 bg-orange-500 mb-6 rounded-full" />
+
           <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-md">
-            From the sacred peaks to the azure coast, Sri Lanka offers more than
-            just a destination; it offers a profound connection to nature and a
-            legacy of island hospitality.
+            From misty mountains to golden shores, Sri Lanka blends raw nature,
+            rich heritage, and warm hospitality into experiences that stay with
+            you long after the journey ends.
           </p>
           <Link href={"/destinations"}>
             <button className="mt-8 px-10 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-orange-600 transition-all active:scale-95 shadow-lg shadow-black/5">

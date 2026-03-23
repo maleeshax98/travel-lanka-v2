@@ -15,9 +15,9 @@ const page = async ({ params }) => {
       </div>
       <div>
         <Header
-          subtitle={"Products"}
-          title={data && data[0].productCategory.name}
-          superTitle={"Sri Lanks"}
+          subtitle={"Explore Sri Lanka"}
+          title={data?.[0]?.productCategory?.name}
+          superTitle={`Top ${data?.[0]?.productCategory?.name} Experiences`}
         />
       </div>
       <div className="w-full  flex flex-wrap  justify-center items-start gap-4 mt-10 ">

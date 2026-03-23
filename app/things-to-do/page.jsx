@@ -13,9 +13,9 @@ const page = async () => {
       <div className=" max-w-7xl mx-auto">
         <div>
           <Header
-            subtitle={"Exlore Sri Lanka"}
-            title={"Things to do "}
-            superTitle={"In Sri Lanka"}
+            subtitle={"Thrilling Adventures"}
+            title={"Experience the Best"}
+            superTitle={"Activities Sri Lanka Has to Offer"}
           />
         </div>
         <div className="w-full  flex flex-wrap gap-10 justify-center items-center p-5">

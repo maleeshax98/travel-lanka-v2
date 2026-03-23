@@ -179,9 +179,9 @@ const DestinationsGalleryList = ({ destinations }) => {
       </div> */}
       <div>
         <Header
-          subtitle={"Beauty of Sri Lanka"}
-          title={"Popular Beautiful Destinations"}
-          superTitle={"Around Sri Lanka"}
+          subtitle={"Featured Destinations"}
+          title={"Handpicked Places Across Sri Lanka"}
+          superTitle={"Iconic Cities • Hidden Gems"}
         />
       </div>
 
@@ -259,7 +259,7 @@ const DestinationsGalleryList = ({ destinations }) => {
             </svg>
 
             <span className="text-orange-400 font-semibold mb-2 relative z-10 text-lg transition-transform duration-500 group-hover:-translate-y-1">
-              More than 200 Destinations
+              Discover Sri Lanka’s Most Beautiful Destinations
             </span>
             <h4 className="text-4xl font-bold mb-8 relative z-10 transition-transform duration-500 delay-75 group-hover:-translate-y-1">
               Explore All Destinations
