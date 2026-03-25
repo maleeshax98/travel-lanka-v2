@@ -20,24 +20,26 @@ const page = async () => {
       {/* <Navigation /> */}
       <Navbar />
 
-      <HeroSection />
-      {/* Destinations, beaches, water falls  */}
-      <Categories />
+      <div className="p-2 md:p-0">
+        <HeroSection />
+        {/* Destinations, beaches, water falls  */}
+        <Categories />
 
-      {/* Product list */}
-      <TrendingProducts />
+        {/* Product list */}
+        <TrendingProducts />
 
-      <About />
-      <Activities />
+        <About />
+        <Activities />
 
-      <TrendingActivities />
+        <TrendingActivities />
 
-      <DestinationsGallery />
+        <DestinationsGallery />
 
-      {/* blog posts */}
-      <BlogSection posts={posts} />
+        {/* blog posts */}
+        <BlogSection posts={posts} />
 
-      <Contact />
+        <Contact />
+      </div>
       <Footer />
     </main>
   );

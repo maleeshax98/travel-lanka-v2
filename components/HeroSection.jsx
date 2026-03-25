@@ -47,10 +47,10 @@ const HeroSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-5">
         <div className="text-center md:text-left">
           <div className="main-text opacity-0">
-            <h1 className="font-extrabold  text-5xl md:text-7xl text-orange-600">
+            <h1 className="font-extrabold text-[10vw] sm:text-5xl md:text-7xl text-orange-600">
               CeylanÉvasion
             </h1>
-            <h1 className="font-caveat text-2xl md:text-4xl">
+            <h1 className="font-caveat text-sm sm:text-2xl md:text-4xl">
               Discover the Pearl of the Indian Ocean
             </h1>
             <p className="text-sm md:text-base">
