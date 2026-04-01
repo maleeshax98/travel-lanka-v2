@@ -29,7 +29,6 @@ export default function GYGActivitiesWidget({ data }) {
 
   const [initialCount, setInitialCount] = useState(data?.numberOfItems || 15);
 
-
   if (!data) {
     return;
   }
@@ -37,7 +36,7 @@ export default function GYGActivitiesWidget({ data }) {
   return (
     <div className="p-10">
       <h1 className="text-3xl  font-bold text-gray-900 border-l-4 border-black pl-6">
-        Things to Do
+        Sponsered Activities
       </h1>
       <br />
       {/* Load the GYG SDK */}
