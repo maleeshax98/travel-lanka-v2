@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,16 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable} antialiased`}
       >
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          {children}
+          {/* GetYourGuide Script */}
+
+          <Script
+            src="https://widget.getyourguide.com/dist/pa.umd.production.min.js"
+            strategy="afterInteractive"
+            data-gyg-partner-id="XDZ8IZE"
+          />
+        </SmoothScroll>
         <Toaster />
       </body>
     </html>

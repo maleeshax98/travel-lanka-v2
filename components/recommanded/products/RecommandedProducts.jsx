@@ -21,8 +21,15 @@ const RecommandedProducts = ({ locationRef, productTypes }) => {
       </div>
     );
 
+  if (!data?.length && data.length <= 0) {
+    return;
+  }
+
   return (
     <div>
+      <h2 className="text-3xl  font-bold text-gray-900 border-l-4 border-black pl-6">
+        Essential Products
+      </h2>
       <div className="p-5">
         <Tabs defaultValue={productTypes[0]} className="w-full">
           <TabsList className="w-full">

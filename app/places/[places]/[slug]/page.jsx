@@ -1,5 +1,6 @@
 import BlogContent from "@/components/BlogContent";
 import Footer from "@/components/footer/Footer";
+import GYGActivitiesWidget from "@/components/getYourGuide/GYGActivitiesWidget";
 import Navbar from "@/components/Navbar";
 import RecommandedItems from "@/components/recommanded/RecommandedItems";
 import getImageURL from "@/libs/sanity";
@@ -9,6 +10,7 @@ import React from "react";
 const Page = async ({ params }) => {
   const { slug } = await params;
   const place = await getPlaceData(slug);
+
   if (!place)
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -70,8 +72,8 @@ const Page = async ({ params }) => {
         </div>
       </article>
 
+      <GYGActivitiesWidget data={place[0].gygActivities} />
       <RecommandedItems locationRef={place[0].city.province._id} />
-
       <Footer />
     </main>
   );

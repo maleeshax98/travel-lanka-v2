@@ -19,7 +19,7 @@ const getAllPlaces = async () => {
 };
 
 const getPlaces = async (slug) => {
-  const QUERY = `*[_type == "placesCategoryType" && defined(slug.current) && slug.current==$slug]{_id, name, slug, mainImage,  body, publishedAt}`;
+  const QUERY = `*[_type == "placesCategoryType" && defined(slug.current) && slug.current==$slug]{_id, name, slug, mainImage,  body, publishedAt, gygActivities-> {_id, _ref, locationId,numberOfItems,partnerId,locationUrl, query}}`;
 
   const place = await client.fetch(QUERY, { slug }, options);
 
@@ -35,7 +35,8 @@ const getPlacesData = async (ref) => {
 };
 
 const getPlaceData = async (slug) => {
-  const QUERY = `*[_type == 'placesType' && defined(slug.current) && slug.current == $slug]{_id, name, slug, mainImage, link, body, city->{_id, name, province->{name, slug, _id}}, category->{name}}`;
+  const QUERY = `*[_type == 'placesType' && defined(slug.current) && slug.current == $slug]{_id, name, slug, mainImage, link, body, gygActivities-> {
+  _id, _ref, locationId,numberOfItems,partnerId,locationUrl, query},city->{_id, name, province->{name, slug, _id}}, category->{name}}`;
 
   const data = await client.fetch(QUERY, { slug }, options);
   return data;

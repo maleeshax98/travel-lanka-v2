@@ -25,6 +25,8 @@ const getActivities = async (slug) => {
     price,
     contactNumbers,
     link,
+    gygActivities-> {
+  _id, _ref, locationId,numberOfItems,partnerId,locationUrl, query}
   }`;
 
   const activity = await client.fetch(QUERY, { slug }, options);
@@ -41,6 +43,8 @@ const getActivity = async (slug) => {
     publishedAt,
     introduction,
     body,    
+    gygActivities-> {
+  _id, _ref, locationId,numberOfItems,partnerId,locationUrl, query}
   }`;
 
   const activity = await client.fetch(QUERY, { slug }, options);
@@ -61,7 +65,9 @@ const getSingleActivity = async (slug) => {
     address,
     price,
     contactNumbers,
-    link
+    link,
+    gygActivities-> {
+  _id, _ref, locationId,numberOfItems,partnerId,locationUrl, query}
     }`;
 
   const activity = await client.fetch(QUERY, { slug }, options);

@@ -6,12 +6,12 @@ import { getDestination } from "@/sanity/destinations/getDestinationsData";
 
 import getImageURL from "@/libs/sanity";
 import RecommandedItems from "@/components/recommanded/RecommandedItems";
+import GYGActivitiesWidget from "@/components/getYourGuide/GYGActivitiesWidget";
 
 const Page = async ({ params }) => {
   const { slug } = await params;
   const destinationData = await getDestination(slug);
   const destination = destinationData[0];
-
   if (!destination) return null;
 
   const locationRef = destination.city.province._id;
@@ -122,7 +122,7 @@ const Page = async ({ params }) => {
           </div>
         </div>
       </section> */}
-
+      <GYGActivitiesWidget data={destination?.gygActivities || []} />
       <RecommandedItems locationRef={locationRef} />
 
       <Footer />

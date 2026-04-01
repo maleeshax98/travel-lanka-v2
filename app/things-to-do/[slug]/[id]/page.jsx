@@ -7,6 +7,7 @@ import { getSingleActivity } from "@/sanity/things-to-do/getThings";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Coins, Phone, Info } from "lucide-react";
+import GYGActivitiesWidget from "@/components/getYourGuide/GYGActivitiesWidget";
 
 const Page = async ({ params }) => {
   const { slug, id } = await params;
@@ -17,6 +18,7 @@ const Page = async ({ params }) => {
   const locationRef = activityData.cities?.[0]?.province?._id;
   const provinceName = activityData?.cities?.[0]?.province?.name;
 
+  console.log(activityData);
   return (
     <main className="bg-[#fcfcfc] min-h-screen">
       <Navbar />
@@ -167,6 +169,9 @@ const Page = async ({ params }) => {
         </div>
       </section>
 
+      <div>
+        <GYGActivitiesWidget data={activityData.gygActivities} />
+      </div>
       {/* Recommendations */}
       <div className="mt-20">
         <RecommandedItems locationRef={locationRef} />

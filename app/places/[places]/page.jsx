@@ -4,6 +4,7 @@ import PlacesCard from "@/components/places/PlacesCard";
 import { getPlacesData, getPlaces } from "@/sanity/places/getPlacesData";
 import React from "react";
 import getImageURL from "@/libs/sanity";
+import GYGActivitiesWidget from "@/components/getYourGuide/GYGActivitiesWidget";
 
 const Page = async ({ params }) => {
   const { places: slug } = await params;
@@ -17,6 +18,7 @@ const Page = async ({ params }) => {
       </div>
     );
   }
+
 
   const activeCategory = placeCategory[0];
   const items = await getPlacesData(activeCategory._id);
@@ -59,6 +61,11 @@ const Page = async ({ params }) => {
         </div>
       </section>
 
+      <section>
+        <div>
+          <GYGActivitiesWidget data={activeCategory.gygActivities} />
+        </div>
+      </section>
       {/* --- EXPLORATION GRID --- */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">

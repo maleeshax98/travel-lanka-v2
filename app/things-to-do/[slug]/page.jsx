@@ -2,6 +2,7 @@ import ActivitiesCard from "@/components/activities/ActivitiesCard";
 import ActivityCatoCard from "@/components/activities/ActivityCatoCard";
 import BlogContent from "@/components/BlogContent";
 import Footer from "@/components/footer/Footer";
+import GYGActivitiesWidget from "@/components/getYourGuide/GYGActivitiesWidget";
 import Navbar from "@/components/Navbar";
 import getImageURL from "@/libs/sanity";
 import { getPlaceData } from "@/sanity/places/getPlacesData";
@@ -66,6 +67,10 @@ const Page = async ({ params }) => {
           <div className="prose prose-lg lg:prose-xl max-w-none prose-headings:font-serif prose-p:text-gray-600 leading-relaxed">
             <BlogContent value={activity.body} />
           </div>
+        </div>
+
+        <div>
+          <GYGActivitiesWidget data={activity.gygActivities} />
         </div>
         <div className="max-w-4xl mx-auto px-6 pt-16 pb-24">
           <h2 className="text-3xl font-bold mb-6">

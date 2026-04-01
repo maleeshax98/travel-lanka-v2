@@ -12,7 +12,8 @@ const getDestinations = async () => {
 };
 
 const getDestination = async (slug) => {
-  const DESTINATION_QUERY = `*[_type == "destinationsType" && defined(slug.current) && slug.current=='${slug}']{_id, name,  slug, publishedAt, mainImage,  body, bestTimeToVisit, city->{name, slug, _id, province->{name, slug, _id}}}`;
+  const DESTINATION_QUERY = `*[_type == "destinationsType" && defined(slug.current) && slug.current=='${slug}']{_id, name,  slug, publishedAt, mainImage,  body, bestTimeToVisit, gygActivities-> {
+  _id, _ref, locationId,numberOfItems,partnerId,locationUrl},city->{name, slug, _id, province->{name, slug, _id}}}`;
 
   const destination = await client.fetch(DESTINATION_QUERY, {}, options);
   return destination;
